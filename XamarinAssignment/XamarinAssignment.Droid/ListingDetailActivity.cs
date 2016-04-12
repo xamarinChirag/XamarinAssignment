@@ -11,6 +11,9 @@ using Android.Views;
 using Android.Widget;
 using XamarinAssignment.Model;
 using XamarinAssignment.ServiceClient;
+using System.Threading.Tasks;
+using XamarinAssignment.Droid.Helper;
+using Android.Graphics;
 
 namespace XamarinAssignment.Droid
 {
@@ -34,13 +37,27 @@ namespace XamarinAssignment.Droid
             var textViewAddress = FindViewById<TextView>(Resource.Id.AddressText);
             var textViewBeds = FindViewById<TextView>(Resource.Id.BedsText);
             var textViewBaths = FindViewById<TextView>(Resource.Id.BathsText);
+            var textEstimatedValue = FindViewById<TextView>(Resource.Id.EstimatedValueText); 
+            var textChangeOverLastYear = FindViewById<TextView>(Resource.Id.ChangeOverLastYearText);
+            var textFeatures = FindViewById<TextView>(Resource.Id.FeaturesText); 
 
+             ImageView downloadedImageView = FindViewById<ImageView>(Resource.Id.DownloadedImageView);
+            byte[] imageBytes = null;
+            Task.Run(async () =>
+            {
+                imageBytes = await listingManager.GetImageAsync(detail.image);
+            }
+           ).GetAwaiter().GetResult();
+
+            ImageHelper.SetImage(imageBytes, detail.listingID, downloadedImageView,100);
             textViewAddress.Text = detail.address;
             textViewBeds.Text = Convert.ToString(detail.beds);
             textViewBaths.Text = Convert.ToString(detail.baths);
-
-
-
+            textEstimatedValue.Text = "$" + detail.estimatedValue;
+            textChangeOverLastYear.Text = Convert.ToDouble(detail.changeOverLastYear).ToString();
+            if (Convert.ToDouble(detail.changeOverLastYear) < 0)
+                textChangeOverLastYear.SetTextColor(Color.Red);
+            textFeatures.Text = detail.features;
         }
     }
 }

@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\ListingsManagerAdapter.cs" />
+    <Compile Include="Helper\ImageHelper.cs" />
     <Compile Include="ListingDetailActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />

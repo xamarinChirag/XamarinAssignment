@@ -1,31 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/GridLayoutDetails"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:columnCount="7"
+    tools:context=".GridLayoutActivity">
+    <ImageView
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/DownloadedImageView"
+        android:layout_gravity="left"
+        android:layout_row="0"
+        android:layout_column="0" />
     <TextView
         android:id="@+id/AddressText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_gravity="left"
+        android:layout_row="1"
+        android:layout_columnSpan="5"
+        android:text="AddressText" />
     <TextView
         android:id="@+id/LableBedsText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_gravity="fill_vertical"
+        android:layout_row="2"
+        android:layout_column="0"
         android:text="Beds :" />
     <TextView
         android:id="@+id/BedsText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_gravity="fill_vertical"
+        android:layout_row="2"
+        android:layout_column="1"
+        android:text="BedsText" />
     <TextView
         android:id="@+id/LableBathsText"
+        android:layout_gravity="fill_vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Baths :" />
+        android:layout_row="2"
+        android:layout_column="2"
+        android:text=" ,Baths :" />
     <TextView
         android:id="@+id/BathsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView" />
-</LinearLayout>
+        android:layout_gravity="center_horizontal"
+        android:layout_row="2"
+        android:layout_column="3"
+        android:text="BathsText" />
+    <TextView
+        android:id="@+id/CommaValueText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_row="2"
+        android:layout_column="4"
+        android:text=", " />
+    <TextView
+        android:id="@+id/EstimatedValueText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_row="2"
+        android:layout_column="5"
+        android:text="EstimatedValueText" />
+    <TextView
+        android:id="@+id/ChangeOverLastYearText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_row="2"
+        android:layout_column="6"
+        android:text="ChangeOverLastYearText" />
+    <TextView
+        android:id="@+id/FeaturesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_row="3"
+        android:textIsSelectable="true"
+        android:layout_column="0"
+        android:text="FeaturesText" />
+</GridLayout>

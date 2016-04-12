@@ -60,26 +60,47 @@ namespace XamarinAssignment.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int AddressText = 2131034112;
-			
-			// aapt resource value: 0x7f050004
-			public const int BathsText = 2131034116;
-			
 			// aapt resource value: 0x7f050002
-			public const int BedsText = 2131034114;
-			
-			// aapt resource value: 0x7f050003
-			public const int LableBathsText = 2131034115;
-			
-			// aapt resource value: 0x7f050001
-			public const int LableBedsText = 2131034113;
+			public const int AddressText = 2131034114;
 			
 			// aapt resource value: 0x7f050006
-			public const int listtingsView = 2131034118;
+			public const int BathsText = 2131034118;
+			
+			// aapt resource value: 0x7f050004
+			public const int BedsText = 2131034116;
+			
+			// aapt resource value: 0x7f05000a
+			public const int ChangeOverLastYearText = 2131034122;
+			
+			// aapt resource value: 0x7f050008
+			public const int CommaValueText = 2131034120;
+			
+			// aapt resource value: 0x7f050001
+			public const int DownloadedImageView = 2131034113;
+			
+			// aapt resource value: 0x7f050009
+			public const int EstimatedValueText = 2131034121;
+			
+			// aapt resource value: 0x7f05000b
+			public const int FeaturesText = 2131034123;
+			
+			// aapt resource value: 0x7f050000
+			public const int GridLayout1 = 2131034112;
+			
+			// aapt resource value: 0x7f050007
+			public const int GridLayoutDetails = 2131034119;
 			
 			// aapt resource value: 0x7f050005
-			public const int textViewListings = 2131034117;
+			public const int LableBathsText = 2131034117;
+			
+			// aapt resource value: 0x7f050003
+			public const int LableBedsText = 2131034115;
+			
+			// aapt resource value: 0x7f05000d
+			public const int listtingsView = 2131034125;
+			
+			// aapt resource value: 0x7f05000c
+			public const int textViewListings = 2131034124;
 			
 			static Id()
 			{

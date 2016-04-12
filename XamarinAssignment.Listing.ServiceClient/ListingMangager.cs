@@ -21,10 +21,7 @@ namespace XamarinAssignment.ServiceClient
                 var uri = new Uri(Constants.strRestUrl + Constants.strListing);
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri(Constants.strRestUrl);
-
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    ConfigureHttpClient(client);
                     var response = await client.GetAsync(uri).ConfigureAwait(false);
                     if (response.IsSuccessStatusCode)
                     {
@@ -51,14 +48,11 @@ namespace XamarinAssignment.ServiceClient
                 var uri = new Uri(Constants.strRestUrl + string.Format(Constants.strListingById, id));
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri(Constants.strRestUrl);
-
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    ConfigureHttpClient(client);
                     var response = await client.GetAsync(uri).ConfigureAwait(false); ;
                     if (response.IsSuccessStatusCode)
                     {
-                        var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false); ;
+                        var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false); 
 
                         listingDetail = JsonConvert.DeserializeObject<ListingDetail>(content);
                     }
@@ -71,15 +65,32 @@ namespace XamarinAssignment.ServiceClient
             return listingDetail;
         }
 
+        
         public async Task<byte[]> GetImageAsync(string name)
         {
-            byte[] imageBytes;
+            byte[] imageBytes = null;
             var uri = new Uri(Constants.strRestUrl + name);
             using (var client = new HttpClient())
             {
-                imageBytes = await client.GetByteArrayAsync(uri);
+                //client.BaseAddress = new Uri(Constants.strRestUrl);
+                client.DefaultRequestHeaders.Accept.Clear();
+                //var task = Task.Run(async () => { imageBytes = await client.GetByteArrayAsync(uri); });
+                //task.Wait();
+                imageBytes = await client.GetByteArrayAsync(uri).ConfigureAwait(false);
             }
             return imageBytes;
+        }
+
+
+        /// <summary>
+        /// Configure the Http client
+        /// </summary>
+        /// <param name="client"></param>
+        private static void ConfigureHttpClient(HttpClient client)
+        {
+            client.BaseAddress = new Uri(Constants.strRestUrl);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
     }
 }

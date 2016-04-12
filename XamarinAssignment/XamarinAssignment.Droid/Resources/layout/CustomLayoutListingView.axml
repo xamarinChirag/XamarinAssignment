@@ -1,21 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/GridLayout1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:columnCount="5"
+    tools:context=".GridLayoutActivity">
+    <ImageView
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_gravity="fill_vertical"
+        android:layout_rowSpan="2"
+        android:layout_row="0"
+        android:id="@+id/DownloadedImageView" />
     <TextView
         android:id="@+id/AddressText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_column="1"
+        android:layout_gravity="left|top"
+        android:layout_row="0"
+        android:layout_columnSpan="4"
+        android:text="TextViesdfsdfsadfsw" />
     <TextView
         android:id="@+id/LableBedsText"
+        android:layout_column="1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_gravity="fill_vertical"
+        android:layout_row="1"
         android:text="Beds :" />
     <TextView
         android:id="@+id/BedsText"
+        android:layout_column="2"
+        android:layout_width="wrap_content"
+        android:layout_gravity="fill_vertical"
+        android:layout_row="1"
+        android:text="TextView" />
+    <TextView
+        android:id="@+id/LableBathsText"
+        android:layout_column="3"
+        android:layout_row="1"
+        android:layout_gravity="fill_vertical"
+        android:text=", Baths :" />
+    <TextView
+        android:id="@+id/BathsText"
+        android:layout_column="4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_row="1"
         android:text="TextView" />
-</LinearLayout>
+</GridLayout>
