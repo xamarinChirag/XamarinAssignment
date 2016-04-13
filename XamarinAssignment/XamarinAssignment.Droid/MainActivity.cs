@@ -20,6 +20,7 @@ namespace XamarinAssignment.Droid
         ListingsManagerAdapter listingAdapter;
         List<Listing> listings;
         ListingMangager listingManager;
+        ProgressDialog progress;
         protected async override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -46,6 +47,9 @@ namespace XamarinAssignment.Droid
             {
                 base.OnResume();
 
+                // show the loading overlay on the UI thread
+                progress = ProgressDialog.Show(this, "Loading", "Please Wait...", true);
+
                 listings = await listingManager.GetItemsAsync();
                 // create our adapter
                 listingAdapter = new ListingsManagerAdapter(this,
@@ -54,6 +58,8 @@ namespace XamarinAssignment.Droid
                 listtingsView = FindViewById<ListView>(Resource.Id.listtingsView);
                 //Hook up our adapter to our ListView
                 listtingsView.Adapter = listingAdapter;
+                if (progress != null)
+                    progress.Hide();
             }
             catch (Exception ex)
             {

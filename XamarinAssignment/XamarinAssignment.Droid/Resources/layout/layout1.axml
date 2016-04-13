@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:shrinkColumns="*"
+    android:stretchColumns="*"
+    android:background="#ffffff">
+<!-- Row 1 with single column -->
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal">
+        <ImageView
+            android:textSize="18dp"
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_span="7"
+            android:padding="18dip"
+            android:background="#b0b0b0"
+            android:textColor="#000" />
+    </TableRow>
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent">
+        <TextView
+            android:id="@+id/AddressText"
+            android:textSize="18dp"
+            android:layout_span="7"
+            android:padding="18dip"
+            android:text="AddressText"
+            android:background="#b0b0b0"
+            android:textColor="#000" />
+    </TableRow>
+<!-- Row 2 with 3 columns -->
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal">
+        <TextView
+            android:id="@+id/LableBedsText"
+            android:layout_weight="1"
+            android:background="#dcdcdc"
+            android:textColor="#000000"
+            android:padding="20dip"
+            android:gravity="center"
+            android:text="Beds :" />
+        <TextView
+            android:id="@+id/BedsText"
+            android:layout_weight="1"
+            android:background="#dcdcdc"
+            android:textColor="#000000"
+            android:padding="20dip"
+            android:gravity="center"
+            android:text="BedsText" />
+        <TextView
+            android:id="@+id/LableBathsText"
+            android:layout_weight="1"
+            android:background="#dcdcdc"
+            android:textColor="#000000"
+            android:padding="20dip"
+            android:gravity="center"
+            android:text=" ,Baths :" />
+        <TextView
+            android:id="@+id/BathsText"
+            android:layout_weight="1"
+            android:background="#dcdcdc"
+            android:textColor="#000000"
+            android:padding="20dip"
+            android:gravity="center"
+            android:text="BathsText" />
+        <TextView
+            android:id="@+id/CommaValueText"
+            android:layout_weight="1"
+            android:background="#dcdcdc"
+            android:textColor="#000000"
+            android:padding="20dip"
+            android:gravity="center"
+            android:text=", " />
+        <TextView
+            android:id="@+id/EstimatedValueText"
+            android:layout_weight="1"
+            android:background="#dcdcdc"
+            android:textColor="#000000"
+            android:padding="20dip"
+            android:gravity="center"
+            android:text="EstimatedValueText" />
+        <TextView
+            android:id="@+id/ChangeOverLastYearText"
+            android:layout_weight="1"
+            android:background="#dcdcdc"
+            android:textColor="#000000"
+            android:padding="20dip"
+            android:gravity="center"
+            android:text="ChangeOverLastYearText" />
+    </TableRow>
+<!-- Row 3 with 2 columns -->
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_weight="1"
+            android:background="#a09f9f"
+            android:textColor="#000000"
+            android:padding="20dip"
+            android:gravity="center"
+            android:textIsSelectable="true"
+            android:text="FeaturesText" />
+    </TableRow>
+</TableLayout>

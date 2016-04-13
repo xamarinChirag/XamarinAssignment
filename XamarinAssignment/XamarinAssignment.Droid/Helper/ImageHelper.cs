@@ -53,8 +53,11 @@ namespace XamarinAssignment.Droid.Helper
                 bmOptions.InSampleSize = scaleFactor;
                 bmOptions.InPurgeable = true;
 
-                Bitmap bitmap = BitmapFactory.DecodeFile(imagePath, bmOptions);
-                destination.SetImageBitmap(bitmap);
+            
+            Bitmap bitmap = BitmapFactory.DecodeFile(imagePath, bmOptions);
+            Bitmap result = Bitmap.CreateScaledBitmap(bitmap,
+                        targetScale, targetScale, false);
+            destination.SetImageBitmap(result);
             
             //else
             //{

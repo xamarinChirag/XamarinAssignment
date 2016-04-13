@@ -22,11 +22,13 @@ namespace XamarinAssignment.Droid
     {
         ListingMangager listingManager;
         ListingDetail detail;
+        ProgressDialog progress;
         protected async  override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             // Create your application here
+            progress = ProgressDialog.Show(this, "Loading", "Please Wait...", true);
             listingManager = new ListingMangager();
             int listingID = Intent.GetIntExtra("ListingID", 0);
             if (listingID > 0)
@@ -49,7 +51,7 @@ namespace XamarinAssignment.Droid
             }
            ).GetAwaiter().GetResult();
 
-            ImageHelper.SetImage(imageBytes, detail.listingID, downloadedImageView,100);
+            ImageHelper.SetImage(imageBytes, detail.listingID, downloadedImageView,150);
             textViewAddress.Text = detail.address;
             textViewBeds.Text = Convert.ToString(detail.beds);
             textViewBaths.Text = Convert.ToString(detail.baths);
@@ -58,6 +60,9 @@ namespace XamarinAssignment.Droid
             if (Convert.ToDouble(detail.changeOverLastYear) < 0)
                 textChangeOverLastYear.SetTextColor(Color.Red);
             textFeatures.Text = detail.features;
+
+            if (progress != null)
+                progress.Hide();
         }
     }
 }
