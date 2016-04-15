@@ -24,7 +24,7 @@
         <scene sceneID="VgW-fR-Quf">
             <objects>
                 <tableViewController title="PropertyListing" id="pGg-6v-bdr" customClass="PropertyViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" id="mLL-gJ-YKr" separatorStyle="default" semanticContentAttribute="forceLeftToRight">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" id="mLL-gJ-YKr" separatorStyle="default" semanticContentAttribute="forceLeftToRight">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -33,7 +33,7 @@
                             <outlet property="delegate" destination="pGg-6v-bdr" id="Y6K-Cp-Qkv"/>
                         </connections>
                         <prototypes>
-                            <tableViewCell contentMode="scaleAspectFill" selectionStyle="none" indentationWidth="0.0" id="357" customClass="PropertyViewCell" accessoryType="disclosureIndicator" reuseIdentifier="Propertycell" restorationIdentifier="PropertyCell" rowHeight="90" indentationLevel="0">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" id="357" customClass="PropertyViewCell" accessoryType="disclosureIndicator" reuseIdentifier="Propertycell" restorationIdentifier="PropertyCell" rowHeight="90" indentationLevel="0">
                                 <rect key="frame" x="0.0" y="1" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="357" id="358">
@@ -89,7 +89,7 @@
                         <outlet property="RateChangeLabel" destination="164" id="name-outlet-164"/>
                         <outlet property="FeatureText" destination="346" id="name-outlet-346"/>
                     </connections>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="250" sectionHeaderHeight="1" sectionFooterHeight="1" id="124" translatesAutoresizingMaskIntoConstraints="NO" key="view" separatorStyle="none" allowsSelection="NO" alwaysBounceHorizontal="YES">
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="250" sectionHeaderHeight="1" sectionFooterHeight="1" id="124" translatesAutoresizingMaskIntoConstraints="NO" key="view" separatorStyle="none" allowsSelection="NO" alwaysBounceHorizontal="YES" semanticContentAttribute="forceLeftToRight">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -165,16 +165,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="225"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="346" translatesAutoresizingMaskIntoConstraints="NO" key="tableHeaderView" text="Features" editable="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="205"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="346" translatesAutoresizingMaskIntoConstraints="NO" key="tableHeaderView" text="Features" editable="NO" fixedFrame="YES">
+                                                    <rect key="frame" x="11" y="0.0" width="600" height="205"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <constraints>
-                                                        <constraint id="1056" firstItem="346" firstAttribute="width" constant="600"/>
-                                                        <constraint id="1057" firstAttribute="width" secondItem="346" secondAttribute="height" multiplier="120:41"/>
-                                                        <constraint id="1058" firstAttribute="width" secondItem="346" secondAttribute="height" multiplier="120:41"/>
-                                                    </constraints>
                                                 </textView>
                                             </subviews>
                                         </tableViewCellContentView>
