@@ -20,8 +20,8 @@ namespace XamarinAssignment.Droid
     [Activity(Label = "ListingDetailActivity")]
     public class ListingDetailActivity : Activity
     {
-        ListingMangager listingManager;
-        ListingDetail detail;
+        PropertyMangager listingManager;
+        PropertyDetail detail;
         ProgressDialog progress;
         protected async  override void OnCreate(Bundle savedInstanceState)
         {
@@ -29,7 +29,7 @@ namespace XamarinAssignment.Droid
 
             // Create your application here
             progress = ProgressDialog.Show(this, "Loading", "Please Wait...", true);
-            listingManager = new ListingMangager();
+            listingManager = new PropertyMangager();
             int listingID = Intent.GetIntExtra("ListingID", 0);
             if (listingID > 0)
             {
@@ -47,19 +47,20 @@ namespace XamarinAssignment.Droid
             byte[] imageBytes = null;
             Task.Run(async () =>
             {
-                imageBytes = await listingManager.GetImageAsync(detail.image);
+                imageBytes = await listingManager.GetImageAsync(detail.Image);
             }
            ).GetAwaiter().GetResult();
 
-            ImageHelper.SetImage(imageBytes, detail.listingID, downloadedImageView,150);
-            textViewAddress.Text = detail.address;
-            textViewBeds.Text = Convert.ToString(detail.beds);
-            textViewBaths.Text = Convert.ToString(detail.baths);
-            textEstimatedValue.Text = "$" + detail.estimatedValue;
-            textChangeOverLastYear.Text = Convert.ToDouble(detail.changeOverLastYear).ToString();
-            if (Convert.ToDouble(detail.changeOverLastYear) < 0)
+
+            ImageHelper.SetImage(imageBytes, detail.ListingID, downloadedImageView,150);
+            textViewAddress.Text = detail.Address;
+            textViewBeds.Text = Convert.ToString(detail.Beds);
+            textViewBaths.Text = Convert.ToString(detail.Baths);
+            textEstimatedValue.Text = "$" + detail.EstimatedValue;
+            textChangeOverLastYear.Text = Convert.ToDouble(detail.ChangeOverLastYear).ToString();
+            if (Convert.ToDouble(detail.ChangeOverLastYear) < 0)
                 textChangeOverLastYear.SetTextColor(Color.Red);
-            textFeatures.Text = detail.features;
+            textFeatures.Text = detail.Features;
 
             if (progress != null)
                 progress.Hide();

@@ -17,6 +17,7 @@ namespace XamarinAssignment.Droid.Helper
 {
    public static class ImageHelper
     {
+        static Dictionary<String, Bitmap> urlToImageMap = new Dictionary<String, Bitmap>();
         public static void SetImage(byte[] imageBytes,int listingID, ImageView downloadedImageView,int isOrignal = 50 )
         {
             string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);

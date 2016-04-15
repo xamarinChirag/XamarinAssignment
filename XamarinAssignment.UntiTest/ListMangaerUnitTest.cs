@@ -13,7 +13,7 @@ namespace XamarinAssignment.UntiTest
         {
             Task.Run(async () =>
             {
-                IListingMangager mgr = new ListingMangager();
+                IPropertyMangager mgr = new PropertyMangager();
                 var list = await mgr.GetItemsAsync();
                 Assert.IsNotNull(list);
             }
@@ -25,7 +25,7 @@ namespace XamarinAssignment.UntiTest
         {
             Task.Run(async () =>
             {
-                IListingMangager mgr = new ListingMangager();
+                IPropertyMangager mgr = new PropertyMangager();
                 var listDetail = await mgr.GetItemAsync("1");
                 Assert.IsNotNull(listDetail);
             }
@@ -37,7 +37,7 @@ namespace XamarinAssignment.UntiTest
         {
             Task.Run(async () =>
             {
-                IListingMangager mgr = new ListingMangager();
+                IPropertyMangager mgr = new PropertyMangager();
                 var list = await mgr.GetImageAsync("/images/1.jpg");
                 Assert.IsNotNull(list);
             }

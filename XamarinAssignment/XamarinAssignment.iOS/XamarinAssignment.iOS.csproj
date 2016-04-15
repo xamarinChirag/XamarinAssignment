@@ -67,6 +67,10 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\XamarinAssignment.Listing.ServiceClient\XamarinAssignment.ServiceClient.csproj">
+      <Project>{b0c6fde2-fb4f-403e-b9e8-da28976d9f22}</Project>
+      <Name>XamarinAssignment.ServiceClient</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XamarinAssignment\XamarinAssignment.Model.csproj">
       <Name>XamarinAssignment.Model</Name>
       <Project>{8D82CB6F-A07F-4277-83A2-1A29452E82C0}</Project>
@@ -131,18 +135,23 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="Main.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
+    <InterfaceDefinition Include="MainStoryboard.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
+    <Compile Include="MasterViewController.cs" />
+    <Compile Include="MasterViewController.designer.cs">
+      <DependentUpon>MasterViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyTableSource.cs" />
+    <Compile Include="TaskDetailViewController.cs" />
+    <Compile Include="TaskDetailViewController.designer.cs">
+      <DependentUpon>TaskDetailViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

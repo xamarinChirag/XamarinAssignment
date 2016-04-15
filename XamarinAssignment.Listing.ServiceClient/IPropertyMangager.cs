@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using XamarinAssignment.Model;
 namespace XamarinAssignment.ServiceClient
 {
-    public interface IListingMangager
+    public interface IPropertyMangager
     {
-        Task<List<Listing>> GetItemsAsync(int skip = 0, int take = 100, bool forceRefresh = false);
-        Task<ListingDetail> GetItemAsync(string id);
+        Task<List<Property>> GetItemsAsync(int skip = 0, int take = 100, bool forceRefresh = false);
+        Task<PropertyDetail> GetItemAsync(string id);
         Task<byte[]> GetImageAsync(string name);
     }
 }

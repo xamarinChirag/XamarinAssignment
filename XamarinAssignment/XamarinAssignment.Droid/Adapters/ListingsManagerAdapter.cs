@@ -18,23 +18,23 @@ using XamarinAssignment.Droid.Helper;
 
 namespace XamarinAssignment.Droid
 {
-    class ListingsManagerAdapter : BaseAdapter<Listing>
+    class ListingsManagerAdapter : BaseAdapter<Property>
     {
         Context context;
         int layoutResourceId;
-        ListingMangager listingManager;
-        List<Listing> listingCollection;
+        PropertyMangager listingManager;
+        List<Property> listingCollection;
        
         public ListingsManagerAdapter(Context context, 
-            int layoutResourceId, List<Listing> listingCollection)
+            int layoutResourceId, List<Property> listingCollection)
         {
-            listingManager = new ListingMangager();
+            listingManager = new PropertyMangager();
             this.context = context;
             this.layoutResourceId = layoutResourceId;
             this.listingCollection = listingCollection;
         }
 
-        public override Listing this[int position]
+        public override Property this[int position]
         {
            get { return listingCollection[position]; }
         }
@@ -63,36 +63,20 @@ namespace XamarinAssignment.Droid
             byte[] imageBytes = null;
             Task.Run(async () =>
             {
-                 imageBytes = await listingManager.GetImageAsync(this[position].image);
+                 imageBytes = await listingManager.GetImageAsync(this[position].Image);
             }
            ).GetAwaiter().GetResult();
 
-            ImageHelper.SetImage(imageBytes, this[position].listingID, downloadedImageView);
-
-            //string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            //string localFilename = this[position].listingID +  ".jpg";
-            //string localPath = System.IO.Path.Combine(documentsPath, localFilename);
-            //File.WriteAllBytes(localPath, imageBytes); // writes to local storage   
-
-
-            //var localImage = new Java.IO.File(localPath);
-            //if (localImage.Exists())
-            //{
-            //    setPic(localImage.AbsolutePath, downloadedImageView);
-            ////    var teamBitmap = BitmapFactory.DecodeFile(localImage.AbsolutePath,BitmapFactory.Options.);
-            ////    teamBitmap.
-            ////    downloadedImageView.SetImageBitmap(teamBitmap);
-            //}
-
+            ImageHelper.SetImage(imageBytes, this[position].ListingID, downloadedImageView);
             
             TextView textViewAddress = view.FindViewById<TextView>(Resource.Id.AddressText);
-            textViewAddress.Text = this[position].address;
+            textViewAddress.Text = this[position].Address;
 
             TextView textViewBeds = view.FindViewById<TextView>(Resource.Id.BedsText);
-            textViewBeds.Text = Convert.ToString(this[position].beds);
+            textViewBeds.Text = Convert.ToString(this[position].Beds);
 
             TextView textBaths = view.FindViewById<TextView>(Resource.Id.BathsText);
-            textBaths.Text = Convert.ToString(this[position].baths);
+            textBaths.Text = Convert.ToString(this[position].Baths);
 
             return view;
         }

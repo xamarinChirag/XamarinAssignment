@@ -18,15 +18,15 @@ namespace XamarinAssignment.Droid
 	{
         ListView listtingsView;
         ListingsManagerAdapter listingAdapter;
-        List<Listing> listings;
-        ListingMangager listingManager;
+        List<Property> listings;
+        PropertyMangager listingManager;
         ProgressDialog progress;
         protected async override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
             // Set our view from the "main" layout resource
-            listingManager = new ListingMangager();
+            listingManager = new PropertyMangager();
             SetContentView (Resource.Layout.Main);
             listtingsView = FindViewById<ListView>(Resource.Id.listtingsView);
 
@@ -36,7 +36,7 @@ namespace XamarinAssignment.Droid
         private void ListtingsView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             var listingDetails = new Intent(this, typeof(ListingDetailActivity));
-            listingDetails.PutExtra("ListingID", listings[e.Position].listingID);
+            listingDetails.PutExtra("ListingID", listings[e.Position].ListingID);
             StartActivity(listingDetails);
 
         }
