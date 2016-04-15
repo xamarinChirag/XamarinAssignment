@@ -142,16 +142,21 @@
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helper\ImageHelper.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="MasterViewController.cs" />
-    <Compile Include="MasterViewController.designer.cs">
-      <DependentUpon>MasterViewController.cs</DependentUpon>
+    <Compile Include="PropertyViewController.cs" />
+    <Compile Include="PropertyViewController.designer.cs">
+      <DependentUpon>PropertyViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="PropertyTableSource.cs" />
-    <Compile Include="TaskDetailViewController.cs" />
-    <Compile Include="TaskDetailViewController.designer.cs">
-      <DependentUpon>TaskDetailViewController.cs</DependentUpon>
+    <Compile Include="PropertyViewCell.cs" />
+    <Compile Include="PropertyViewCell.designer.cs">
+      <DependentUpon>PropertyViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyDetailViewController.cs" />
+    <Compile Include="PropertyDetailViewController.designer.cs">
+      <DependentUpon>PropertyDetailViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

@@ -11,8 +11,8 @@ using UIKit;
 
 namespace XamarinAssignment.iOS
 {
-	[Register ("TaskDetailViewController")]
-	partial class TaskDetailViewController
+	[Register ("PropertyDetailViewController")]
+	partial class PropertyDetailViewController
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -20,7 +20,7 @@ namespace XamarinAssignment.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel BathLabel { get; set; }
+		UILabel BathsLabel { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -52,9 +52,9 @@ namespace XamarinAssignment.iOS
 				AddressLabel.Dispose ();
 				AddressLabel = null;
 			}
-			if (BathLabel != null) {
-				BathLabel.Dispose ();
-				BathLabel = null;
+			if (BathsLabel != null) {
+				BathsLabel.Dispose ();
+				BathsLabel = null;
 			}
 			if (BedsLabel != null) {
 				BedsLabel.Dispose ();
