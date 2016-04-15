@@ -103,7 +103,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="158" key="tableHeaderView" fixedFrame="YES">
-                                                    <rect key="frame" x="12" y="10" width="559" height="120"/>
+                                                    <rect key="frame" x="12" y="10" width="390" height="120"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -115,8 +115,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" text="Address" lineBreakMode="wordWrap" minimumFontSize="10" id="160" translatesAutoresizingMaskIntoConstraints="NO" shadowOffsetHeight="0" fixedFrame="YES" preferredMaxLayoutWidth="412">
-                                                    <rect key="frame" x="15" y="0.0" width="416" height="35"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="Address" lineBreakMode="wordWrap" minimumFontSize="10" id="160" translatesAutoresizingMaskIntoConstraints="NO" shadowOffsetHeight="0" fixedFrame="YES" preferredMaxLayoutWidth="412">
+                                                    <rect key="frame" x="15" y="0.0" width="386" height="35"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                     <nil key="highlightedColor"/>
@@ -134,25 +134,25 @@
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Beds" lineBreakMode="wordWrap" minimumFontSize="10" id="161" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
                                                     <rect key="frame" x="15" y="0.0" width="60" height="44"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Baths" lineBreakMode="wordWrap" minimumFontSize="10" id="162" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                                    <rect key="frame" x="112" y="0.0" width="60" height="44"/>
+                                                    <rect key="frame" x="76" y="0.0" width="60" height="44"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="EstimatedValue" lineBreakMode="wordWrap" minimumFontSize="10" id="163" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                                    <rect key="frame" x="193" y="0.0" width="106" height="44"/>
+                                                    <rect key="frame" x="144" y="0.0" width="106" height="44"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="RateChange" lineBreakMode="wordWrap" minimumFontSize="10" id="164" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                                    <rect key="frame" x="322" y="0.0" width="99" height="44"/>
+                                                    <rect key="frame" x="268" y="0.0" width="99" height="44"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -165,10 +165,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="225"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="346" translatesAutoresizingMaskIntoConstraints="NO" key="tableHeaderView" text="Features" editable="NO" fixedFrame="YES">
-                                                    <rect key="frame" x="11" y="0.0" width="600" height="205"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="346" translatesAutoresizingMaskIntoConstraints="NO" key="tableHeaderView" text="Features" editable="NO" fixedFrame="YES" scrollEnabled="NO">
+                                                    <rect key="frame" x="11" y="0.0" width="408" height="205"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>

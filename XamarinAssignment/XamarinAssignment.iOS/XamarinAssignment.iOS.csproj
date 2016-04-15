@@ -145,6 +145,10 @@
     <Compile Include="Helper\ImageHelper.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="PropertyDetailViewCell.cs" />
+    <Compile Include="PropertyDetailViewCell.designer.cs">
+      <DependentUpon>PropertyDetailViewCell.cs</DependentUpon>
+    </Compile>
     <Compile Include="PropertyViewController.cs" />
     <Compile Include="PropertyViewController.designer.cs">
       <DependentUpon>PropertyViewController.cs</DependentUpon>
