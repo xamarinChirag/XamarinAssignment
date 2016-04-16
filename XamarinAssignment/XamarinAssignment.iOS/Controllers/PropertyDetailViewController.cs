@@ -12,12 +12,12 @@ namespace XamarinAssignment.iOS
 	partial class PropertyDetailViewController : UITableViewController
 	{
         int currentPropertyId;
-        PropertyMangager propertyManager;
+        IPropertyMangager propertyManager;
         PropertyDetail propertyDetail;
 
         public PropertyDetailViewController (IntPtr handle) : base (handle)
 		{
-          
+            propertyManager = TinyIoC.TinyIoCContainer.Current.Resolve<IPropertyMangager>();
 
         }
 		public override void ViewDidLoad()

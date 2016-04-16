@@ -13,11 +13,13 @@ namespace XamarinAssignment.iOS
 
         List<Property> propertyCollection;
         string cellIdentifier = "Propertycell"; // set in the Storyboard
-        PropertyMangager propertyManager;
-        public PropertyTableSource(List<Property> listings)
+        IPropertyMangager propertyManager;
+        public PropertyTableSource(List<Property> properties)
         {
-            propertyCollection = listings;
-            propertyManager = new PropertyMangager();
+            propertyCollection = properties;
+            // propertyManager = new PropertyMangager();
+            propertyManager = TinyIoC.TinyIoCContainer.Current.Resolve<IPropertyMangager>();
+
         }
         public override nint RowsInSection(UITableView tableview, nint section)
         {

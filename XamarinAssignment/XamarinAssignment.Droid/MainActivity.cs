@@ -10,6 +10,7 @@ using XamarinAssignment.Model;
 using System.Collections.Generic;
 using XamarinAssignment.ServiceClient;
 using System.Threading.Tasks;
+using TinyIoC;
 
 namespace XamarinAssignment.Droid
 {
@@ -19,14 +20,19 @@ namespace XamarinAssignment.Droid
         ListView listtingsView;
         ListingsManagerAdapter listingAdapter;
         List<Property> listings;
-        PropertyMangager listingManager;
+        IPropertyMangager propertyManager;
         ProgressDialog progress;
         protected async override void OnCreate (Bundle bundle)
 		{
-			base.OnCreate (bundle);
+            var container = TinyIoCContainer.Current;
+            container.Register<IPropertyMangager, PropertyMangager>().AsSingleton();
+
+          
+            base.OnCreate (bundle);
 
             // Set our view from the "main" layout resource
-            listingManager = new PropertyMangager();
+            propertyManager = TinyIoC.TinyIoCContainer.Current.Resolve<IPropertyMangager>();
+            //propertyManager = new PropertyMangager();
             SetContentView (Resource.Layout.Main);
             listtingsView = FindViewById<ListView>(Resource.Id.listtingsView);
 
@@ -37,7 +43,7 @@ namespace XamarinAssignment.Droid
             // show the loading overlay on the UI thread
             progress = ProgressDialog.Show(this, "Loading", "Please Wait...", true);
 
-            listings = await listingManager.GetItemsAsync();
+            listings = await propertyManager.GetItemsAsync();
             // create our adapter
             listingAdapter = new ListingsManagerAdapter(this,
                     Resource.Layout.CustomLayoutListingView,

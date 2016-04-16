@@ -140,6 +140,7 @@
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper\ImageHelper.cs" />
@@ -162,6 +163,7 @@
     <Compile Include="Controllers\PropertyDetailViewController.designer.cs">
       <DependentUpon>PropertyDetailViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\TinyIoC.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

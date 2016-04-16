@@ -11,11 +11,12 @@ namespace XamarinAssignment.iOS
 {
 	public partial class PropertyViewController : UITableViewController
 	{
-        List<Property> listings;
-        PropertyMangager listingManager;
+        List<Property> properties;
+        IPropertyMangager propertyManager;
         public PropertyViewController (IntPtr handle) : base (handle)
 		{
-            listingManager = new PropertyMangager();
+            //listingManager = new PropertyMangager();
+            propertyManager = TinyIoC.TinyIoCContainer.Current.Resolve<IPropertyMangager>();
 
         }
 
@@ -53,9 +54,9 @@ namespace XamarinAssignment.iOS
             base.ViewWillAppear(animated);
 
             
-            listings = listingManager.GetItemsAsync().Result;
+            properties = propertyManager.GetItemsAsync().Result;
             // bind every time, to reflect deletion in the Detail view
-            TableView.Source = new PropertyTableSource(listings);
+            TableView.Source = new PropertyTableSource(properties);
             
         }
 

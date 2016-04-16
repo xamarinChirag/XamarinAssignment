@@ -9,7 +9,7 @@ namespace XamarinAssignment.iOS
 	{
 
 
-        #region Computed Properties
+        #region  Properties
         public UIImageView Image
         {
             get { return PropertyImage; }

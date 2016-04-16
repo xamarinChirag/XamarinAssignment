@@ -22,13 +22,15 @@ namespace XamarinAssignment.Droid
     {
         Context context;
         int layoutResourceId;
-        PropertyMangager listingManager;
+        IPropertyMangager propertyManager;
         List<Property> listingCollection;
        
         public ListingsManagerAdapter(Context context, 
             int layoutResourceId, List<Property> listingCollection)
         {
-            listingManager = new PropertyMangager();
+            propertyManager = TinyIoC.TinyIoCContainer.Current.Resolve<IPropertyMangager>();
+
+            //propertyManager = new PropertyMangager();
             this.context = context;
             this.layoutResourceId = layoutResourceId;
             this.listingCollection = listingCollection;
@@ -63,7 +65,7 @@ namespace XamarinAssignment.Droid
             byte[] imageBytes = null;
             Task.Run(async () =>
             {
-                 imageBytes = await listingManager.GetImageAsync(this[position].Image);
+                 imageBytes = await propertyManager.GetImageAsync(this[position].Image);
             }
            ).GetAwaiter().GetResult();
 

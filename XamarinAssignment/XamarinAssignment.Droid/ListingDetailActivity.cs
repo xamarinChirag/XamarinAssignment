@@ -20,7 +20,7 @@ namespace XamarinAssignment.Droid
     [Activity(Label = "ListingDetailActivity")]
     public class ListingDetailActivity : Activity
     {
-        PropertyMangager listingManager;
+        IPropertyMangager propertyManager;
         PropertyDetail detail;
         ProgressDialog progress;
         protected async  override void OnCreate(Bundle savedInstanceState)
@@ -29,11 +29,12 @@ namespace XamarinAssignment.Droid
 
             // Create your application here
             progress = ProgressDialog.Show(this, "Loading", "Please Wait...", true);
-            listingManager = new PropertyMangager();
+            propertyManager = TinyIoC.TinyIoCContainer.Current.Resolve<IPropertyMangager>();
+            //propertyManager = new PropertyMangager();
             int listingID = Intent.GetIntExtra("ListingID", 0);
             if (listingID > 0)
             {
-                detail = await listingManager.GetItemAsync(listingID.ToString());
+                detail = await propertyManager.GetItemAsync(listingID.ToString());
             }
             SetContentView(Resource.Layout.ListingDetailView);
             var textViewAddress = FindViewById<TextView>(Resource.Id.AddressText);
@@ -47,7 +48,7 @@ namespace XamarinAssignment.Droid
             byte[] imageBytes = null;
             Task.Run(async () =>
             {
-                imageBytes = await listingManager.GetImageAsync(detail.Image);
+                imageBytes = await propertyManager.GetImageAsync(detail.Image);
             }
            ).GetAwaiter().GetResult();
 

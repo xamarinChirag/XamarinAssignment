@@ -1,5 +1,7 @@
 ﻿using Foundation;
+using TinyIoC;
 using UIKit;
+using XamarinAssignment.ServiceClient;
 
 namespace XamarinAssignment.iOS
 {
@@ -17,9 +19,13 @@ namespace XamarinAssignment.iOS
 
 		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 		{
-			// Override point for customization after application launch.
-			// If not required for your application you can safely delete this method
-			return true;
+            // Override point for customization after application launch.
+            // If not required for your application you can safely delete this method
+
+            var container = TinyIoCContainer.Current;
+            container.Register<IPropertyMangager, PropertyMangager>().AsSingleton();
+
+            return true;
 		}
 
 		public override void OnResignActivation (UIApplication application)
