@@ -24,7 +24,7 @@
         <scene sceneID="VgW-fR-Quf">
             <objects>
                 <tableViewController title="PropertyListing" id="pGg-6v-bdr" customClass="PropertyViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" id="mLL-gJ-YKr" separatorStyle="default" semanticContentAttribute="forceLeftToRight">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" id="mLL-gJ-YKr" semanticContentAttribute="forceLeftToRight">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -33,68 +33,51 @@
                             <outlet property="delegate" destination="pGg-6v-bdr" id="Y6K-Cp-Qkv"/>
                         </connections>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" id="357" customClass="PropertyViewCell" accessoryType="disclosureIndicator" reuseIdentifier="Propertycell" restorationIdentifier="PropertyCell" rowHeight="90" indentationLevel="0">
-                                <rect key="frame" x="0.0" y="1" width="600" height="90"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" id="357" customClass="PropertyViewCell" accessoryType="disclosureIndicator" reuseIdentifier="Propertycell" restorationIdentifier="PropertyCell" rowHeight="95" indentationLevel="0">
+                                <rect key="frame" x="0.0" y="1" width="600" height="95"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="357" id="358">
-                                    <rect key="frame" x="0.0" y="0.0" width="562" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="562" height="94.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="359" translatesAutoresizingMaskIntoConstraints="NO">
-                                            <rect key="frame" x="10" y="6" width="115" height="78"/>
-                                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                <rect key="frame" x="10" y="6" width="110" height="78"/>
-                                                <mask key="constraints">
-                                                    <include reference="1095"/>
-                                                    <include reference="1098"/>
-                                                </mask>
-                                            </variation>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="359" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                            <rect key="frame" x="10" y="7.5" width="158" height="70"/>
                                             <constraints>
-                                                <constraint id="1095" firstItem="359" firstAttribute="height" constant="78"/>
-                                                <constraint id="1098" firstAttribute="width" constant="121"/>
+                                                <constraint id="957" firstAttribute="width" constant="158"/>
+                                                <constraint id="958" firstAttribute="height" constant="70"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="1095"/>
-                                                    <exclude reference="1098"/>
-                                                </mask>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <rect key="frame" x="10" y="12.5" width="158" height="70"/>
                                             </variation>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" text="Address tryre ertyerty ertye ertyertyeryter eryt" lineBreakMode="tailTruncation" minimumFontSize="10" id="360" translatesAutoresizingMaskIntoConstraints="NO" shadowOffsetHeight="0" fixedFrame="YES">
-                                            <rect key="frame" x="133" y="7" width="153" height="33"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" text="Address dfswera werasdgafweta sd asf asdf werwewerwer werwe" lineBreakMode="tailTruncation" id="360" translatesAutoresizingMaskIntoConstraints="NO" shadowOffsetHeight="0" adjustsFontSizeToFit="NO">
+                                            <rect key="frame" x="176" y="6" width="386" height="29"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                             <nil key="highlightedColor"/>
-                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="128" y="6" width="138" height="21"/>
-                                            </variation>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Beds dfgsdf srdrtewrtsdfg sd" lineBreakMode="tailTruncation" minimumFontSize="10" id="361" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                            <rect key="frame" x="133" y="48" width="153" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" text="Beds 234324234wer23er23 23rwer234qwrwe 23423rwer2 35qwrwe" lineBreakMode="tailTruncation" id="361" translatesAutoresizingMaskIntoConstraints="NO" adjustsFontSizeToFit="NO" misplaced="YES">
+                                            <rect key="frame" x="176" y="46.5" width="200" height="24"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="highlightedColor"/>
-                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="128" y="52" width="158" height="21"/>
-                                            </variation>
                                         </label>
                                     </subviews>
+                                    <variation key="heightClass=regular-widthClass=regular">
+                                        <rect key="frame" x="0.0" y="0.0" width="702" height="94.5"/>
+                                    </variation>
                                     <constraints>
-                                        <constraint id="1096" firstItem="359" firstAttribute="leading" secondItem="358" secondAttribute="leading" constant="10"/>
-                                        <constraint id="1097" firstItem="358" firstAttribute="bottom" secondItem="359" secondAttribute="bottom" constant="5"/>
+                                        <constraint id="955" firstItem="359" firstAttribute="leading" secondItem="358" secondAttribute="leading" constant="10"/>
+                                        <constraint id="969" firstItem="360" firstAttribute="trailing" secondItem="358" secondAttribute="trailing"/>
+                                        <constraint id="971" firstItem="360" firstAttribute="top" secondItem="358" secondAttribute="top" constant="6"/>
+                                        <constraint id="977" firstItem="358" firstAttribute="trailing" secondItem="361" secondAttribute="trailing"/>
+                                        <constraint id="984" firstItem="360" firstAttribute="leading" secondItem="359" secondAttribute="trailing" constant="8"/>
+                                        <constraint id="985" firstItem="361" firstAttribute="leading" secondItem="359" secondAttribute="trailing" constant="8"/>
+                                        <constraint id="988" firstItem="358" firstAttribute="bottom" secondItem="361" secondAttribute="bottom" constant="19"/>
+                                        <constraint id="1049" firstItem="358" firstAttribute="bottom" secondItem="359" secondAttribute="bottom" constant="12"/>
                                     </constraints>
                                     <variation key="heightClass=regular-widthClass=compact">
-                                        <rect key="frame" x="0.0" y="0.0" width="286" height="89.5"/>
-                                        <mask key="constraints">
-                                            <include reference="1096"/>
-                                            <include reference="1097"/>
-                                        </mask>
-                                    </variation>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="1096"/>
-                                            <exclude reference="1097"/>
-                                        </mask>
+                                        <rect key="frame" x="0.0" y="0.0" width="341" height="94.5"/>
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
@@ -129,55 +112,44 @@
                         <outlet property="RateChangeLabel" destination="164" id="name-outlet-164"/>
                         <outlet property="FeatureText" destination="346" id="name-outlet-346"/>
                     </connections>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="250" sectionHeaderHeight="1" sectionFooterHeight="1" id="124" translatesAutoresizingMaskIntoConstraints="NO" key="view" separatorStyle="none" allowsSelection="NO" alwaysBounceHorizontal="YES" semanticContentAttribute="forceLeftToRight">
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="250" sectionHeaderHeight="1" sectionFooterHeight="1" id="124" translatesAutoresizingMaskIntoConstraints="NO" key="view" separatorStyle="none" allowsSelection="NO" alwaysBounceHorizontal="YES">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection id="137">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="138" reuseIdentifier="imagecell" rowHeight="150" indentationLevel="1">
-                                        <rect key="frame" x="0.0" y="70" width="600" height="150"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="138" reuseIdentifier="imagecell" rowHeight="245" indentationLevel="1">
+                                        <rect key="frame" x="0.0" y="70" width="600" height="245"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="138" id="139">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="245"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="158" key="tableHeaderView">
-                                                    <rect key="frame" x="12" y="10" width="308" height="120"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="158" key="tableHeaderView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="245"/>
                                                     <variation key="heightClass=regular-widthClass=compact">
-                                                        <rect key="frame" x="12" y="10" width="308" height="120"/>
+                                                        <rect key="frame" x="0.0" y="10" width="320" height="120"/>
                                                     </variation>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint id="948" firstItem="158" firstAttribute="top" secondItem="139" secondAttribute="top" constant="10"/>
-                                                <constraint id="950" firstItem="158" firstAttribute="leading" secondItem="139" secondAttribute="leading" constant="12"/>
-                                                <constraint id="951" firstItem="139" firstAttribute="bottom" secondItem="158" secondAttribute="bottom" constant="20"/>
-                                                <constraint id="993" firstItem="158" firstAttribute="top" secondItem="139" secondAttribute="top" constant="10"/>
-                                                <constraint id="1069" firstItem="158" firstAttribute="trailing" secondItem="139" secondAttribute="trailing"/>
+                                                <constraint id="1056" firstItem="158" firstAttribute="top" secondItem="139" secondAttribute="top" constant="10"/>
+                                                <constraint id="1057" firstItem="158" firstAttribute="trailing" secondItem="139" secondAttribute="trailing"/>
+                                                <constraint id="1059" firstItem="158" firstAttribute="leading" secondItem="139" secondAttribute="leading"/>
+                                                <constraint id="1060" firstItem="139" firstAttribute="bottom" secondItem="158" secondAttribute="bottom" constant="20"/>
+                                                <constraint id="1121" firstItem="158" firstAttribute="centerY" secondItem="139" secondAttribute="centerY" constant="2"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="993"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="heightClass=regular-widthClass=compact">
-                                                <mask key="constraints">
-                                                    <include reference="993"/>
-                                                </mask>
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
-                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="140" reuseIdentifier="addresscell" rowHeight="44">
-                                        <rect key="frame" x="0.0" y="220" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="315" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="140" id="141">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="Address" lineBreakMode="wordWrap" minimumFontSize="10" id="160" translatesAutoresizingMaskIntoConstraints="NO" shadowOffsetHeight="0" preferredMaxLayoutWidth="412">
-                                                    <rect key="frame" x="15" y="0.0" width="305" height="35"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" text="Address" lineBreakMode="wordWrap" minimumFontSize="10" id="160" translatesAutoresizingMaskIntoConstraints="NO" shadowOffsetHeight="0" preferredMaxLayoutWidth="412">
+                                                    <rect key="frame" x="15" y="0.0" width="585" height="35"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                     <nil key="highlightedColor"/>
@@ -187,36 +159,16 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint id="952" firstItem="141" firstAttribute="trailing" secondItem="160" secondAttribute="trailing" constant="199"/>
-                                                <constraint id="953" firstItem="160" firstAttribute="leading" secondItem="141" secondAttribute="leading" constant="15"/>
-                                                <constraint id="954" firstItem="160" firstAttribute="top" secondItem="141" secondAttribute="top"/>
-                                                <constraint id="955" firstItem="141" firstAttribute="bottom" secondItem="160" secondAttribute="bottom" constant="9"/>
-                                                <constraint id="1003" firstItem="160" firstAttribute="top" secondItem="141" secondAttribute="top"/>
-                                                <constraint id="1004" firstItem="160" firstAttribute="top" secondItem="141" secondAttribute="top"/>
-                                                <constraint id="1005" firstItem="160" firstAttribute="top" secondItem="141" secondAttribute="top"/>
-                                                <constraint id="1006" firstItem="141" firstAttribute="bottom" secondItem="160" secondAttribute="bottom" constant="9"/>
+                                                <constraint id="1061" firstItem="160" firstAttribute="trailing" secondItem="141" secondAttribute="trailing"/>
+                                                <constraint id="1062" firstItem="160" firstAttribute="leading" secondItem="141" secondAttribute="leading" constant="15"/>
+                                                <constraint id="1063" firstItem="141" firstAttribute="bottom" secondItem="160" secondAttribute="bottom" constant="9"/>
+                                                <constraint id="1113" firstItem="160" firstAttribute="top" secondItem="141" secondAttribute="top"/>
+                                                <constraint id="1114" firstItem="141" firstAttribute="bottom" secondItem="160" secondAttribute="bottom" constant="9"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="1003"/>
-                                                    <exclude reference="1004"/>
-                                                    <exclude reference="1005"/>
-                                                    <exclude reference="1006"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="heightClass=regular-widthClass=compact">
-                                                <mask key="constraints">
-                                                    <include reference="1003"/>
-                                                    <include reference="1004"/>
-                                                    <include reference="1005"/>
-                                                    <include reference="1006"/>
-                                                </mask>
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="142" reuseIdentifier="propertydetailCell" rowHeight="60">
-                                        <rect key="frame" x="0.0" y="264" width="600" height="60"/>
+                                        <rect key="frame" x="0.0" y="359" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="142" id="143">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
@@ -229,76 +181,63 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Baths" lineBreakMode="wordWrap" minimumFontSize="10" id="162" translatesAutoresizingMaskIntoConstraints="NO">
-                                                    <rect key="frame" x="76" y="0.0" width="60" height="44"/>
+                                                    <rect key="frame" x="78" y="0.0" width="60" height="44"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="EstimatedValue" lineBreakMode="wordWrap" minimumFontSize="10" id="163" translatesAutoresizingMaskIntoConstraints="NO">
-                                                    <rect key="frame" x="144" y="0.0" width="106" height="44"/>
+                                                    <rect key="frame" x="158" y="0.0" width="60" height="44"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="RateChange" lineBreakMode="wordWrap" minimumFontSize="10" id="164" translatesAutoresizingMaskIntoConstraints="NO">
-                                                    <rect key="frame" x="268" y="0.0" width="52" height="44"/>
+                                                    <rect key="frame" x="323" y="0.0" width="60" height="44"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact">
-                                                        <rect key="frame" x="268" y="0.0" width="52" height="44"/>
+                                                        <rect key="frame" x="287" y="0.0" width="33" height="44"/>
                                                     </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint id="957" firstItem="162" firstAttribute="leading" secondItem="161" secondAttribute="trailing" constant="1"/>
-                                                <constraint id="965" firstItem="143" firstAttribute="bottom" secondItem="161" secondAttribute="bottom" constant="16"/>
-                                                <constraint id="966" firstItem="143" firstAttribute="bottom" secondItem="162" secondAttribute="bottom" constant="16"/>
-                                                <constraint id="967" firstItem="143" firstAttribute="bottom" secondItem="163" secondAttribute="bottom" constant="16"/>
-                                                <constraint id="968" firstItem="143" firstAttribute="bottom" secondItem="164" secondAttribute="bottom" constant="16"/>
+                                                <constraint id="1064" firstItem="163" firstAttribute="height" secondItem="162" secondAttribute="height"/>
+                                                <constraint id="1065" firstItem="161" firstAttribute="height" secondItem="162" secondAttribute="height"/>
+                                                <constraint id="1066" firstItem="164" firstAttribute="height" secondItem="162" secondAttribute="height"/>
+                                                <constraint id="1069" firstItem="161" firstAttribute="leading" secondItem="143" secondAttribute="leading" constant="15"/>
+                                                <constraint id="1101" firstItem="162" firstAttribute="width" secondItem="161" secondAttribute="width"/>
+                                                <constraint id="1102" firstItem="163" firstAttribute="width" secondItem="161" secondAttribute="width"/>
+                                                <constraint id="1103" firstItem="164" firstAttribute="width" secondItem="161" secondAttribute="width"/>
                                             </constraints>
-                                            <variation key="heightClass=regular-widthClass=compact">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
-                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="165" reuseIdentifier="featurecell" rowHeight="127">
-                                        <rect key="frame" x="0.0" y="324" width="600" height="127"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="165" reuseIdentifier="featurecell" rowHeight="200">
+                                        <rect key="frame" x="0.0" y="419" width="600" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="165" id="166">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="127"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="346" translatesAutoresizingMaskIntoConstraints="NO" key="tableHeaderView" text="Features" editable="NO" scrollEnabled="NO">
-                                                    <rect key="frame" x="11" y="0.0" width="309" height="127"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" id="346" translatesAutoresizingMaskIntoConstraints="NO" key="tableHeaderView" text="Features" editable="NO" scrollEnabled="NO" alwaysBounceHorizontal="YES">
+                                                    <rect key="frame" x="11" y="0.0" width="589" height="198"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <variation key="heightClass=regular-widthClass=compact">
-                                                        <rect key="frame" x="11" y="0.0" width="309" height="122"/>
+                                                        <rect key="frame" x="11" y="0.0" width="309" height="121"/>
                                                     </variation>
                                                 </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint id="969" firstItem="346" firstAttribute="top" secondItem="166" secondAttribute="top"/>
-                                                <constraint id="970" firstItem="346" firstAttribute="leading" secondItem="166" secondAttribute="leading" constant="11"/>
-                                                <constraint id="972" firstItem="166" firstAttribute="bottom" secondItem="346" secondAttribute="bottom" constant="20"/>
-                                                <constraint id="975" firstItem="346" firstAttribute="leading" secondItem="166" secondAttribute="leading" constant="11"/>
-                                                <constraint id="1007" firstItem="346" firstAttribute="top" secondItem="166" secondAttribute="top"/>
+                                                <constraint id="1067" firstItem="346" firstAttribute="top" secondItem="166" secondAttribute="top"/>
+                                                <constraint id="1071" firstItem="346" firstAttribute="bottom" secondItem="166" secondAttribute="bottom"/>
+                                                <constraint id="1087" firstItem="346" firstAttribute="leading" secondItem="166" secondAttribute="leading" constant="11"/>
+                                                <constraint id="1089" firstItem="346" firstAttribute="trailing" secondItem="166" secondAttribute="trailing"/>
+                                                <constraint id="1115" firstItem="346" firstAttribute="top" secondItem="166" secondAttribute="top"/>
+                                                <constraint id="1116" firstItem="166" firstAttribute="bottom" secondItem="346" secondAttribute="bottom" constant="2"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="975"/>
-                                                    <exclude reference="1007"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="heightClass=regular-widthClass=compact">
-                                                <mask key="constraints">
-                                                    <include reference="975"/>
-                                                    <include reference="1007"/>
-                                                </mask>
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="127"/>
-                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -308,7 +247,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1086" y="46"/>
+            <point key="canvasLocation" x="1212" y="47"/>
         </scene>
     </scenes>
     <resources>

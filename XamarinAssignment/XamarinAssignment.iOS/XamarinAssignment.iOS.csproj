@@ -145,21 +145,21 @@
     <Compile Include="Helper\ImageHelper.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="PropertyDetailViewCell.cs" />
-    <Compile Include="PropertyDetailViewCell.designer.cs">
+    <Compile Include="CustomControls\PropertyDetailViewCell.cs" />
+    <Compile Include="CustomControls\PropertyDetailViewCell.designer.cs">
       <DependentUpon>PropertyDetailViewCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="PropertyViewController.cs" />
-    <Compile Include="PropertyViewController.designer.cs">
+    <Compile Include="Controllers\PropertyViewController.cs" />
+    <Compile Include="Controllers\PropertyViewController.designer.cs">
       <DependentUpon>PropertyViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="PropertyTableSource.cs" />
-    <Compile Include="PropertyViewCell.cs" />
-    <Compile Include="PropertyViewCell.designer.cs">
+    <Compile Include="CustomControls\PropertyTableSource.cs" />
+    <Compile Include="CustomControls\PropertyViewCell.cs" />
+    <Compile Include="CustomControls\PropertyViewCell.designer.cs">
       <DependentUpon>PropertyViewCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="PropertyDetailViewController.cs" />
-    <Compile Include="PropertyDetailViewController.designer.cs">
+    <Compile Include="Controllers\PropertyDetailViewController.cs" />
+    <Compile Include="Controllers\PropertyDetailViewController.designer.cs">
       <DependentUpon>PropertyDetailViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>

@@ -42,8 +42,8 @@ namespace XamarinAssignment.iOS
                 AddressLabel.Text = propertyDetail.Address;
                 BedsLabel.Text = string.Format("Beds: {0}", propertyDetail.Beds);
                 BathsLabel.Text = string.Format(", Baths: {0}", propertyDetail.Baths);
-                EstimatedValueLabel.Text = string.Format(", {0:C}", propertyDetail.EstimatedValue);
-                RateChangeLabel.Text = string.Format(", {0}%", Convert.ToString(propertyDetail.ChangeOverLastYear));
+                EstimatedValueLabel.Text = string.Format(", {0:C}, ", propertyDetail.EstimatedValue);
+                RateChangeLabel.Text = string.Format("{0}%", Convert.ToString(propertyDetail.ChangeOverLastYear));
                 FeatureText.Text = propertyDetail.Features;
                 if (Convert.ToDouble(propertyDetail.ChangeOverLastYear) < 0)
                     RateChangeLabel.TextColor = UIColor.Red;

@@ -31,7 +31,22 @@ namespace XamarinAssignment.Droid
             listtingsView = FindViewById<ListView>(Resource.Id.listtingsView);
 
             listtingsView.SetItemChecked(0, true);
-            listtingsView.ItemClick += ListtingsView_ItemClick; 
+            listtingsView.ItemClick += ListtingsView_ItemClick;
+
+
+            // show the loading overlay on the UI thread
+            progress = ProgressDialog.Show(this, "Loading", "Please Wait...", true);
+
+            listings = await listingManager.GetItemsAsync();
+            // create our adapter
+            listingAdapter = new ListingsManagerAdapter(this,
+                    Resource.Layout.CustomLayoutListingView,
+                    listings);
+            listtingsView = FindViewById<ListView>(Resource.Id.listtingsView);
+            //Hook up our adapter to our ListView
+            listtingsView.Adapter = listingAdapter;
+            if (progress != null)
+                progress.Hide();
         }
         private void ListtingsView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
@@ -47,19 +62,7 @@ namespace XamarinAssignment.Droid
             {
                 base.OnResume();
 
-                // show the loading overlay on the UI thread
-                progress = ProgressDialog.Show(this, "Loading", "Please Wait...", true);
-
-                listings = await listingManager.GetItemsAsync();
-                // create our adapter
-                listingAdapter = new ListingsManagerAdapter(this,
-                        Resource.Layout.CustomLayoutListingView,
-                        listings);
-                listtingsView = FindViewById<ListView>(Resource.Id.listtingsView);
-                //Hook up our adapter to our ListView
-                listtingsView.Adapter = listingAdapter;
-                if (progress != null)
-                    progress.Hide();
+                
             }
             catch (Exception ex)
             {

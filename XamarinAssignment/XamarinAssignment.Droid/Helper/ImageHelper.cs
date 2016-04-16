@@ -17,23 +17,32 @@ namespace XamarinAssignment.Droid.Helper
 {
    public static class ImageHelper
     {
-        static Dictionary<String, Bitmap> urlToImageMap = new Dictionary<String, Bitmap>();
+        static Dictionary<int, string> urlToImageMap = new Dictionary<int, string>();
         public static void SetImage(byte[] imageBytes,int listingID, ImageView downloadedImageView,int isOrignal = 50 )
         {
-            string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            string localFilename = listingID + ".jpg";
-            string localPath = System.IO.Path.Combine(documentsPath, localFilename);
-            File.WriteAllBytes(localPath, imageBytes); // writes to local storage   
-
-            var localImage = new Java.IO.File(localPath);
-            if (localImage.Exists())
+            if (!urlToImageMap.ContainsKey(listingID))
             {
-                setPic(localImage.AbsolutePath, downloadedImageView, isOrignal);
-                //    var teamBitmap = BitmapFactory.DecodeFile(localImage.AbsolutePath,BitmapFactory.Options.);
-                //    teamBitmap.
-                //    downloadedImageView.SetImageBitmap(teamBitmap);
+                string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+                string localFilename = listingID + ".jpg";
+                string localPath = System.IO.Path.Combine(documentsPath, localFilename);
+                File.WriteAllBytes(localPath, imageBytes); // writes to local storage   
+
+                var localImage = new Java.IO.File(localPath);
+                if (localImage.Exists())
+                {
+                    setPic(localImage.AbsolutePath, downloadedImageView, isOrignal);
+                    urlToImageMap.Add(listingID, localImage.AbsolutePath);
+                    //    var teamBitmap = BitmapFactory.DecodeFile(localImage.AbsolutePath,BitmapFactory.Options.);
+                    //    teamBitmap.
+                    //    downloadedImageView.SetImageBitmap(teamBitmap);
+                }
             }
-        }
+            else
+            {
+                setPic(urlToImageMap[listingID], downloadedImageView, isOrignal);
+
+            }
+}
         private static void setPic(String imagePath, ImageView destination, int targetScale)
         {
             

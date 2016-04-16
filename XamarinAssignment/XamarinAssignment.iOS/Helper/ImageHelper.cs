@@ -11,7 +11,7 @@ namespace XamarinAssignment.iOS.Helper
 {
    public static class ImageHelper
     {
-        static Dictionary<int, String> urlToImageMap = new Dictionary<int, String>();
+        static Dictionary<int, string> urlToImageMap = new Dictionary<int, string>();
         public static void SetImage(byte[] imageBytes,int listingID, UIImageView downloadedImageView,int isOrignal = 50 )
         {
 
