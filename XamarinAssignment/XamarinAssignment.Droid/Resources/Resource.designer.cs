@@ -100,23 +100,20 @@ namespace XamarinAssignment.Droid
 			// aapt resource value: 0x7f060003
 			public const int BedsText = 2131099651;
 			
-			// aapt resource value: 0x7f060009
-			public const int ChangeOverLastYearText = 2131099657;
+			// aapt resource value: 0x7f060008
+			public const int ChangeOverLastYearText = 2131099656;
 			
-			// aapt resource value: 0x7f060007
-			public const int CommaValueText = 2131099655;
+			// aapt resource value: 0x7f060006
+			public const int CommavalueText = 2131099654;
 			
 			// aapt resource value: 0x7f060000
 			public const int DownloadedImageView = 2131099648;
 			
-			// aapt resource value: 0x7f060008
-			public const int EstimatedValueText = 2131099656;
+			// aapt resource value: 0x7f060007
+			public const int EstimatedValueText = 2131099655;
 			
-			// aapt resource value: 0x7f060010
-			public const int FeaturesText = 2131099664;
-			
-			// aapt resource value: 0x7f06000a
-			public const int GridLayout1 = 2131099658;
+			// aapt resource value: 0x7f060009
+			public const int FeaturesText = 2131099657;
 			
 			// aapt resource value: 0x7f060004
 			public const int LableBathsText = 2131099652;
@@ -124,29 +121,11 @@ namespace XamarinAssignment.Droid
 			// aapt resource value: 0x7f060002
 			public const int LableBedsText = 2131099650;
 			
-			// aapt resource value: 0x7f06000c
-			public const int button1 = 2131099660;
-			
-			// aapt resource value: 0x7f06000d
-			public const int button2 = 2131099661;
-			
 			// aapt resource value: 0x7f06000b
-			public const int button3 = 2131099659;
+			public const int PropertylisttingsView = 2131099659;
 			
-			// aapt resource value: 0x7f06000e
-			public const int button4 = 2131099662;
-			
-			// aapt resource value: 0x7f06000f
-			public const int commavalue = 2131099663;
-			
-			// aapt resource value: 0x7f060012
-			public const int listtingsView = 2131099666;
-			
-			// aapt resource value: 0x7f060006
-			public const int tableRow1 = 2131099654;
-			
-			// aapt resource value: 0x7f060011
-			public const int textViewListings = 2131099665;
+			// aapt resource value: 0x7f06000a
+			public const int ViewListingsText = 2131099658;
 			
 			static Id()
 			{
@@ -165,16 +144,10 @@ namespace XamarinAssignment.Droid
 			public const int CustomLayoutListingView = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int layout1 = 2130903041;
+			public const int PropertyDetailView = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int layout2 = 2130903042;
-			
-			// aapt resource value: 0x7f030003
-			public const int ListingDetailView = 2130903043;
-			
-			// aapt resource value: 0x7f030004
-			public const int Main = 2130903044;
+			public const int PropertyViewMain = 2130903042;
 			
 			static Layout()
 			{

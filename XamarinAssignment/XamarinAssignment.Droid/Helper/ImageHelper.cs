@@ -18,62 +18,55 @@ namespace XamarinAssignment.Droid.Helper
    public static class ImageHelper
     {
         static Dictionary<int, string> urlToImageMap = new Dictionary<int, string>();
-        public static void SetImage(byte[] imageBytes,int listingID, ImageView downloadedImageView,int isOrignal = 50 )
+        public static void SetImage(byte[] imageBytes,int listingID, ImageView downloadedImageView,int isOrignal = 100 )
         {
             if (!urlToImageMap.ContainsKey(listingID))
             {
                 string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
                 string localFilename = listingID + ".jpg";
                 string localPath = System.IO.Path.Combine(documentsPath, localFilename);
-                File.WriteAllBytes(localPath, imageBytes); // writes to local storage   
-
+                if(!File.Exists(localPath))
+                    File.WriteAllBytes(localPath, imageBytes); // writes to local storage   
+               
                 var localImage = new Java.IO.File(localPath);
                 if (localImage.Exists())
                 {
-                    setPic(localImage.AbsolutePath, downloadedImageView, isOrignal);
+                    SetPic(localImage.AbsolutePath, downloadedImageView, isOrignal);
                     urlToImageMap.Add(listingID, localImage.AbsolutePath);
-                    //    var teamBitmap = BitmapFactory.DecodeFile(localImage.AbsolutePath,BitmapFactory.Options.);
-                    //    teamBitmap.
-                    //    downloadedImageView.SetImageBitmap(teamBitmap);
                 }
             }
             else
             {
-                setPic(urlToImageMap[listingID], downloadedImageView, isOrignal);
+                SetPic(urlToImageMap[listingID], downloadedImageView, isOrignal);
 
             }
 }
-        private static void setPic(String imagePath, ImageView destination, int targetScale)
+        private static void SetPic(String imagePath, ImageView destination, int targetScale)
         {
             
-                int targetW = targetScale;
-                int targetH = targetScale;
-                // Get the dimensions of the bitmap
-                BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-                bmOptions.InJustDecodeBounds = true;
-                BitmapFactory.DecodeFile(imagePath, bmOptions);
-                int photoW = bmOptions.OutWidth;
-                int photoH = bmOptions.OutHeight;
+                //int targetW = targetScale;
+                //int targetH = targetScale;
+                //// Get the dimensions of the bitmap
+                //BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+                //bmOptions.InJustDecodeBounds = true;
+                //BitmapFactory.DecodeFile(imagePath, bmOptions);
+                //int photoW = bmOptions.OutWidth;
+                //int photoH = bmOptions.OutHeight;
 
-                // Determine how much to scale down the image
-                int scaleFactor = Math.Min(photoW / targetW, photoH / targetH);
+                //// Determine how much to scale down the image
+                //int scaleFactor = Math.Min(photoW / targetW, photoH / targetH);
 
-                // Decode the image file into a Bitmap sized to fill the View
-                bmOptions.InJustDecodeBounds = false;
-                bmOptions.InSampleSize = scaleFactor;
-                bmOptions.InPurgeable = true;
+                //// Decode the image file into a Bitmap sized to fill the View
+                //bmOptions.InJustDecodeBounds = false;
+                //bmOptions.InSampleSize = scaleFactor;
+                //bmOptions.InPurgeable = true;
 
             
-            Bitmap bitmap = BitmapFactory.DecodeFile(imagePath, bmOptions);
-            Bitmap result = Bitmap.CreateScaledBitmap(bitmap,
-                        targetScale, targetScale, false);
-            destination.SetImageBitmap(result);
-            
-            //else
-            //{
-            //    var teamBitmap = BitmapFactory.DecodeFile(imagePath);
-            //    destination.SetImageBitmap(teamBitmap);
-            //}
+            Bitmap bitmap = BitmapFactory.DecodeFile(imagePath);
+            //Bitmap result = Bitmap.CreateScaledBitmap(bitmap,
+            //            targetScale + 50, targetScale, false);
+            //destination.SetImageBitmap(result);
+            destination.SetImageBitmap(bitmap);
         }
     }
 }

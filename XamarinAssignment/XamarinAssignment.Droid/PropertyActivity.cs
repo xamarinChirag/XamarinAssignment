@@ -10,72 +10,85 @@ using XamarinAssignment.Model;
 using System.Collections.Generic;
 using XamarinAssignment.ServiceClient;
 using System.Threading.Tasks;
-using TinyIoC;
+using XamarinAssignment.Infrastructure.CrossCuttings;
+using Cirrious.CrossCore;
 
 namespace XamarinAssignment.Droid
 {
 	[Activity (Label = "XamarinAssignment.Droid", MainLauncher = true, Icon = "@drawable/icon")]
-	public class MainActivity : Activity
+	public class PropertyActivity : Activity
 	{
-        ListView listtingsView;
-        ListingsManagerAdapter listingAdapter;
+        #region Fields
+        ListView propertylisttingsView;
+        PropertyListingsManagerAdapter listingAdapter;
         List<Property> listings;
         IPropertyMangager propertyManager;
         ProgressDialog progress;
+        #endregion
+
+        #region Methods
+        /// <summary>
+        /// OnCreate
+        /// </summary>
+        /// <param name="bundle"></param>
         protected async override void OnCreate (Bundle bundle)
 		{
-            var container = TinyIoCContainer.Current;
-            container.Register<IPropertyMangager, PropertyMangager>().AsSingleton();
-
-          
+            SetUpIOC.SetupContainer();
+            
             base.OnCreate (bundle);
-
             // Set our view from the "main" layout resource
-            propertyManager = TinyIoC.TinyIoCContainer.Current.Resolve<IPropertyMangager>();
+            propertyManager = Mvx.GetSingleton<IPropertyMangager>();
             //propertyManager = new PropertyMangager();
-            SetContentView (Resource.Layout.Main);
-            listtingsView = FindViewById<ListView>(Resource.Id.listtingsView);
+            SetContentView (Resource.Layout.PropertyViewMain);
 
-            listtingsView.SetItemChecked(0, true);
-            listtingsView.ItemClick += ListtingsView_ItemClick;
-
+            propertylisttingsView = FindViewById<ListView>(Resource.Id.PropertylisttingsView);
+            propertylisttingsView.SetItemChecked(0, true);
+            propertylisttingsView.ItemClick += ListtingsView_ItemClick;
 
             // show the loading overlay on the UI thread
             progress = ProgressDialog.Show(this, "Loading", "Please Wait...", true);
-
             listings = await propertyManager.GetItemsAsync();
             // create our adapter
-            listingAdapter = new ListingsManagerAdapter(this,
+            listingAdapter = new PropertyListingsManagerAdapter(this,
                     Resource.Layout.CustomLayoutListingView,
                     listings);
-            listtingsView = FindViewById<ListView>(Resource.Id.listtingsView);
+            propertylisttingsView = FindViewById<ListView>(Resource.Id.PropertylisttingsView);
             //Hook up our adapter to our ListView
-            listtingsView.Adapter = listingAdapter;
+            propertylisttingsView.Adapter = listingAdapter;
             if (progress != null)
                 progress.Hide();
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ListtingsView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            var listingDetails = new Intent(this, typeof(ListingDetailActivity));
+            var listingDetails = new Intent(this, typeof(PropertyDetailActivity));
             listingDetails.PutExtra("ListingID", listings[e.Position].ListingID);
             StartActivity(listingDetails);
 
         }
 
-        protected async  override void OnResume()
+        /// <summary>
+        /// OnResume
+        /// </summary>
+        protected override void OnResume()
         {
             try
             {
                 base.OnResume();
-
-                
             }
-            catch (Exception ex)
+            catch 
             {
 
             }
 
         }
+
+        #endregion
+
     }
 }
 

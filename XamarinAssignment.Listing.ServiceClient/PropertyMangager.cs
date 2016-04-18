@@ -13,6 +13,7 @@ namespace XamarinAssignment.ServiceClient
 {
     public class PropertyMangager : IPropertyMangager
     {
+
         public async Task<List<Property>> GetItemsAsync(int skip = 0, int take = 100, bool forceRefresh = false)
         {
             List<Property> listings = new List<Property>();

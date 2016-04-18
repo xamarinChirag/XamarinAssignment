@@ -6,6 +6,7 @@ using Foundation;
 using UIKit;
 using XamarinAssignment.Model;
 using XamarinAssignment.ServiceClient;
+using Cirrious.CrossCore;
 
 namespace XamarinAssignment.iOS
 {
@@ -16,7 +17,8 @@ namespace XamarinAssignment.iOS
         public PropertyViewController (IntPtr handle) : base (handle)
 		{
             //listingManager = new PropertyMangager();
-            propertyManager = TinyIoC.TinyIoCContainer.Current.Resolve<IPropertyMangager>();
+            //propertyManager = TinyIoC.TinyIoCContainer.Current.Resolve<IPropertyMangager>();
+            propertyManager = Mvx.GetSingleton<IPropertyMangager>();
 
         }
 

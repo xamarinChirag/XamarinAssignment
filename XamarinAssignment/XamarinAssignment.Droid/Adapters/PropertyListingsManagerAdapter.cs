@@ -15,35 +15,41 @@ using System.IO;
 using Android.Graphics;
 using System.Threading.Tasks;
 using XamarinAssignment.Droid.Helper;
+using Cirrious.CrossCore;
 
 namespace XamarinAssignment.Droid
 {
-    class ListingsManagerAdapter : BaseAdapter<Property>
+    class PropertyListingsManagerAdapter : BaseAdapter<Property>
     {
+
+        #region Fields
         Context context;
         int layoutResourceId;
         IPropertyMangager propertyManager;
-        List<Property> listingCollection;
-       
-        public ListingsManagerAdapter(Context context, 
+        List<Property> propertyCollection;
+        #endregion
+
+        #region Methods
+        public PropertyListingsManagerAdapter(Context context, 
             int layoutResourceId, List<Property> listingCollection)
         {
-            propertyManager = TinyIoC.TinyIoCContainer.Current.Resolve<IPropertyMangager>();
-
+            //propertyManager = TinyIoC.TinyIoCContainer.Current.Resolve<IPropertyMangager>();
             //propertyManager = new PropertyMangager();
+            propertyManager = Mvx.GetSingleton<IPropertyMangager>();
+
             this.context = context;
             this.layoutResourceId = layoutResourceId;
-            this.listingCollection = listingCollection;
+            this.propertyCollection = listingCollection;
         }
 
         public override Property this[int position]
         {
-           get { return listingCollection[position]; }
+           get { return propertyCollection[position]; }
         }
 
         public override int Count
         {
-            get { return listingCollection.Count; }
+            get { return propertyCollection.Count; }
         }
 
         public override long GetItemId(int position)
@@ -82,7 +88,7 @@ namespace XamarinAssignment.Droid
 
             return view;
         }
+        #endregion
 
-       
     }
 }

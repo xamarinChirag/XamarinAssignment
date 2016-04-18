@@ -1,3 +1,4 @@
+using Cirrious.CrossCore;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -18,7 +19,9 @@ namespace XamarinAssignment.iOS
         {
             propertyCollection = properties;
             // propertyManager = new PropertyMangager();
-            propertyManager = TinyIoC.TinyIoCContainer.Current.Resolve<IPropertyMangager>();
+            //propertyManager = TinyIoC.TinyIoCContainer.Current.Resolve<IPropertyMangager>();
+            propertyManager = Mvx.GetSingleton<IPropertyMangager>();
+
 
         }
         public override nint RowsInSection(UITableView tableview, nint section)

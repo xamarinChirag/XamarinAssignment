@@ -24,11 +24,13 @@
         android:layout_height="wrap_content">
         <TextView
             android:id="@+id/AddressText"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15dip"
+            android:textSize="24dip"
+            android:textStyle="bold"
             android:textColor="@color/white"
-            android:text="TextViesdfsdfsadfsw" />
+            android:text="TextViesdfsdfsadfsw dwer safwer asdfwer "
+            android:layout_width="wrap_content"
+            android:singleLine="true" />
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"

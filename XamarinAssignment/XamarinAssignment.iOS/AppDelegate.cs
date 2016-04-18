@@ -1,6 +1,6 @@
 ﻿using Foundation;
-using TinyIoC;
 using UIKit;
+using XamarinAssignment.Infrastructure.CrossCuttings;
 using XamarinAssignment.ServiceClient;
 
 namespace XamarinAssignment.iOS
@@ -22,8 +22,9 @@ namespace XamarinAssignment.iOS
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
 
-            var container = TinyIoCContainer.Current;
-            container.Register<IPropertyMangager, PropertyMangager>().AsSingleton();
+            //var container = TinyIoCContainer.Current;
+            //container.Register<IPropertyMangager, PropertyMangager>().AsSingleton();
+            SetUpIOC.SetupContainer();
 
             return true;
 		}

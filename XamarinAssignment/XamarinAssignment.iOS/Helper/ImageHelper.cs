@@ -20,7 +20,8 @@ namespace XamarinAssignment.iOS.Helper
                 string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
                 string localFilename = listingID + ".jpg";
                 string localPath = System.IO.Path.Combine(documentsPath, localFilename);
-                File.WriteAllBytes(localPath, imageBytes); // writes to local storage   
+                if (!File.Exists(localPath))
+                    File.WriteAllBytes(localPath, imageBytes); // writes to local storage   
 
                 downloadedImageView.Image = UIImage.FromFile(localPath);
                 urlToImageMap.Add(listingID, localPath);

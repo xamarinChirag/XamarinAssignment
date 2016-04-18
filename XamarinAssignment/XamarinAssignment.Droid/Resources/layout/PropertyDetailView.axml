@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:padding="4dp">
+        <ImageView
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill_horizontal"
+            android:id="@+id/DownloadedImageView" />
+        <TextView
+            android:id="@+id/AddressText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24dip"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:text="AddressText"
+            android:textStyle="bold" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/LableBedsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dip"
+                android:textColor="@color/white"
+                android:text="Beds :" />
+            <TextView
+                android:id="@+id/BedsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dip"
+                android:textColor="@color/white"
+                android:text="BedsText" />
+            <TextView
+                android:id="@+id/LableBathsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dip"
+                android:textColor="@color/white"
+                android:text=" ,Baths :" />
+            <TextView
+                android:id="@+id/BathsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dip"
+                android:textColor="@color/white"
+                android:text="BathsText" />
+            <TextView
+                android:id="@+id/CommavalueText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dip"
+                android:textColor="@color/white"
+                android:text=", " />
+            <TextView
+                android:id="@+id/EstimatedValueText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dip"
+                android:textColor="@color/white"
+                android:text="EstimatedValueText" />
+            <TextView
+                android:id="@+id/CommavalueText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dip"
+                android:textColor="@color/white"
+                android:text=", " />
+            <TextView
+                android:id="@+id/ChangeOverLastYearText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dip"
+                android:textColor="@color/white"
+                android:text="c" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/FeaturesText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dip"
+            android:textColor="@color/white"
+            android:layout_gravity="fill_vertical"
+            android:textIsSelectable="true"
+            android:text="FeaturesText" />
+    </LinearLayout>
+</ScrollView>
