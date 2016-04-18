@@ -35,11 +35,13 @@ namespace XamarinAssignment.Droid
         {
             //propertyManager = TinyIoC.TinyIoCContainer.Current.Resolve<IPropertyMangager>();
             //propertyManager = new PropertyMangager();
-            propertyManager = Mvx.GetSingleton<IPropertyMangager>();
 
             this.context = context;
             this.layoutResourceId = layoutResourceId;
             this.propertyCollection = listingCollection;
+
+            propertyManager = Mvx.GetSingleton<IPropertyMangager>();
+
         }
 
         public override Property this[int position]
@@ -57,7 +59,7 @@ namespace XamarinAssignment.Droid
             return position;
         }
 
-        public override View GetView(int position, View convertView, ViewGroup parent)
+        public  override View GetView(int position, View convertView, ViewGroup parent)
         {
             View view = convertView;
             if (view == null)
@@ -68,15 +70,12 @@ namespace XamarinAssignment.Droid
             }
 
             ImageView downloadedImageView = view.FindViewById<ImageView>(Resource.Id.DownloadedImageView);
-            byte[] imageBytes = null;
-            Task.Run(async () =>
-            {
-                 imageBytes = await propertyManager.GetImageAsync(this[position].Image);
-            }
-           ).GetAwaiter().GetResult();
+           // byte[] imageBytes = null;
 
-            ImageHelper.SetImage(imageBytes, this[position].ListingID, downloadedImageView);
-            
+            //imageBytes =  propertyManager.GetImageAsync(this[position].Image).Result;
+        
+            ImageHelper.SetImage(propertyManager,  this[position], downloadedImageView);
+
             TextView textViewAddress = view.FindViewById<TextView>(Resource.Id.AddressText);
             textViewAddress.Text = this[position].Address;
 

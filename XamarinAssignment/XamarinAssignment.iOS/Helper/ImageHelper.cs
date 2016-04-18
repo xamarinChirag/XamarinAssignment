@@ -6,29 +6,45 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using UIKit;
+using XamarinAssignment.ServiceClient;
+using XamarinAssignment.Model;
 
 namespace XamarinAssignment.iOS.Helper
 {
    public static class ImageHelper
     {
         static Dictionary<int, string> urlToImageMap = new Dictionary<int, string>();
-        public static void SetImage(byte[] imageBytes,int listingID, UIImageView downloadedImageView,int isOrignal = 50 )
+        public static void SetImage(IPropertyMangager propertyManager, Property property, UIImageView downloadedImageView, int isOrignal = 50)
         {
 
-            if (!urlToImageMap.ContainsKey(listingID))
-            {
-                string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-                string localFilename = listingID + ".jpg";
-                string localPath = System.IO.Path.Combine(documentsPath, localFilename);
-                if (!File.Exists(localPath))
-                    File.WriteAllBytes(localPath, imageBytes); // writes to local storage   
+            byte[] imageBytes = null;
 
-                downloadedImageView.Image = UIImage.FromFile(localPath);
-                urlToImageMap.Add(listingID, localPath);
-            }
-            else
+            if (!urlToImageMap.ContainsKey(property.ListingID))
             {
-                downloadedImageView.Image = UIImage.FromFile(urlToImageMap[listingID]);
+                Task.Run(async () =>
+                {
+                    imageBytes = await propertyManager.GetImageAsync(property.Image);
+
+                }
+                ).ConfigureAwait(false);
+
+
+                //imageBytes = propertyManager.GetImageAsync(propertyitem.Image).Result
+                if (!urlToImageMap.ContainsKey(property.ListingID))
+                {
+                    string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+                    string localFilename = property.ListingID + ".jpg";
+                    string localPath = System.IO.Path.Combine(documentsPath, localFilename);
+                    if (!File.Exists(localPath))
+                        File.WriteAllBytes(localPath, imageBytes); // writes to local storage   
+
+                    downloadedImageView.Image = UIImage.FromFile(localPath);
+                    urlToImageMap.Add(property.ListingID, localPath);
+                }
+                else
+                {
+                    downloadedImageView.Image = UIImage.FromFile(urlToImageMap[property.ListingID]);
+                }
             }
         }
         //private static void setPic(String imagePath, ImageView destination, int targetScale)

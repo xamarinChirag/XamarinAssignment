@@ -41,7 +41,9 @@ namespace XamarinAssignment.iOS
                 byte[] imageBytes = null;
                 imageBytes =  propertyManager.GetImageAsync(propertyDetail.Image).Result;
 
-                ImageHelper.SetImage(imageBytes, propertyDetail.ListingID, PropertyImage, 150);
+                //ImageHelper.SetImage(imageBytes, propertyDetail.ListingID, PropertyImage, 150);
+                ImageHelper.SetImage(propertyManager, propertyDetail, PropertyImage);
+
                 AddressLabel.Text = propertyDetail.Address;
                 BedsLabel.Text = string.Format("Beds: {0}", propertyDetail.Beds);
                 BathsLabel.Text = string.Format(", Baths: {0}", propertyDetail.Baths);

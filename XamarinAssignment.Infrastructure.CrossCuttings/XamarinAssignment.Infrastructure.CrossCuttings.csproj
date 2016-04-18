@@ -36,7 +36,8 @@
   <ItemGroup>
     <Compile Include="AkavacheSqliteLinkerOverride.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SetUpIOC.cs" />
+    <Compile Include="IOC\SetUpIOC.cs" />
+    <Compile Include="SQLLightCaching\SQLLightCachingHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -91,6 +92,10 @@
     <ProjectReference Include="..\XamarinAssignment.Listing.ServiceClient\XamarinAssignment.ServiceClient.csproj">
       <Project>{b0c6fde2-fb4f-403e-b9e8-da28976d9f22}</Project>
       <Name>XamarinAssignment.ServiceClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XamarinAssignment\XamarinAssignment\XamarinAssignment.Model.csproj">
+      <Project>{8d82cb6f-a07f-4277-83a2-1a29452e82c0}</Project>
+      <Name>XamarinAssignment.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

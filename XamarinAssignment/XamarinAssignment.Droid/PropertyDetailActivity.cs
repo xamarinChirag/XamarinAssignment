@@ -66,14 +66,16 @@ namespace XamarinAssignment.Droid
             var textFeatures = FindViewById<TextView>(Resource.Id.FeaturesText);
 
             ImageView downloadedImageView = FindViewById<ImageView>(Resource.Id.DownloadedImageView);
-            byte[] imageBytes = null;
-            Task.Run(async () =>
-            {
-                imageBytes = await propertyManager.GetImageAsync(propertydetail.Image);
-            }
-           ).GetAwaiter().GetResult();
+            // byte[] imageBytes = null;
+            // Task.Run(async () =>
+            // {
+            //     imageBytes = await propertyManager.GetImageAsync(propertydetail.Image);
+            // }
+            //).GetAwaiter().GetResult();
 
-            ImageHelper.SetImage(imageBytes, propertydetail.ListingID, downloadedImageView, 200);
+            //// ImageHelper.SetImage(imageBytes, propertydetail.ListingID, downloadedImageView, 200);
+            ImageHelper.SetImage(propertyManager, propertydetail, downloadedImageView);
+
             textViewAddress.Text = propertydetail.Address;
             textViewBeds.Text = Convert.ToString(propertydetail.Beds);
             textViewBaths.Text = Convert.ToString(propertydetail.Baths);

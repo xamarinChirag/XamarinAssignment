@@ -36,10 +36,11 @@ namespace XamarinAssignment.iOS
             cell.Address = propertyitem.Address;
             cell.Beds = string.Format("Beds: {0}, Baths: {1}", propertyitem.Beds, propertyitem.Baths);
 
-            byte[] imageBytes = null;
-            imageBytes = propertyManager.GetImageAsync(propertyitem.Image).Result;
+            //byte[] imageBytes = null;
+            //imageBytes = propertyManager.GetImageAsync(propertyitem.Image).Result;
 
-            ImageHelper.SetImage(imageBytes, propertyitem.ListingID, cell.Image, 150);
+            // ImageHelper.SetImage(imageBytes, propertyitem.ListingID, cell.Image, 150);
+            ImageHelper.SetImage(propertyManager, propertyitem, cell.Image);
             return cell;
         }
         public Property GetItem(int id)

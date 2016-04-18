@@ -12,35 +12,46 @@ using Android.Widget;
 using Android.Graphics;
 using System.Threading.Tasks;
 using System.IO;
+using XamarinAssignment.ServiceClient;
+using XamarinAssignment.Model;
 
 namespace XamarinAssignment.Droid.Helper
 {
    public static class ImageHelper
     {
         static Dictionary<int, string> urlToImageMap = new Dictionary<int, string>();
-        public static void SetImage(byte[] imageBytes,int listingID, ImageView downloadedImageView,int isOrignal = 100 )
+        public static void SetImage(IPropertyMangager propertyManager, Property property, ImageView downloadedImageView, int isOrignal = 100)
         {
-            if (!urlToImageMap.ContainsKey(listingID))
+            byte[] imageBytes = null;
+
+            if (!urlToImageMap.ContainsKey(property.ListingID))
             {
+                Task.Run(async () =>
+                {
+                    imageBytes = await propertyManager.GetImageAsync(property.Image);
+
+                }
+                ).ConfigureAwait(false);
+
                 string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-                string localFilename = listingID + ".jpg";
+                string localFilename = property.ListingID + ".jpg";
                 string localPath = System.IO.Path.Combine(documentsPath, localFilename);
-                if(!File.Exists(localPath))
+                if (!File.Exists(localPath))
                     File.WriteAllBytes(localPath, imageBytes); // writes to local storage   
-               
+
                 var localImage = new Java.IO.File(localPath);
                 if (localImage.Exists())
                 {
                     SetPic(localImage.AbsolutePath, downloadedImageView, isOrignal);
-                    urlToImageMap.Add(listingID, localImage.AbsolutePath);
+                    urlToImageMap.Add(property.ListingID, localImage.AbsolutePath);
                 }
             }
             else
             {
-                SetPic(urlToImageMap[listingID], downloadedImageView, isOrignal);
+                SetPic(urlToImageMap[property.ListingID], downloadedImageView, isOrignal);
 
             }
-}
+        }
         private static void SetPic(String imagePath, ImageView destination, int targetScale)
         {
             

@@ -45,18 +45,7 @@ namespace XamarinAssignment.Droid
             propertylisttingsView.SetItemChecked(0, true);
             propertylisttingsView.ItemClick += ListtingsView_ItemClick;
 
-            // show the loading overlay on the UI thread
-            progress = ProgressDialog.Show(this, "Loading", "Please Wait...", true);
-            listings = await propertyManager.GetItemsAsync();
-            // create our adapter
-            listingAdapter = new PropertyListingsManagerAdapter(this,
-                    Resource.Layout.CustomLayoutListingView,
-                    listings);
-            propertylisttingsView = FindViewById<ListView>(Resource.Id.PropertylisttingsView);
-            //Hook up our adapter to our ListView
-            propertylisttingsView.Adapter = listingAdapter;
-            if (progress != null)
-                progress.Hide();
+           
         }
         /// <summary>
         /// 
@@ -74,13 +63,27 @@ namespace XamarinAssignment.Droid
         /// <summary>
         /// OnResume
         /// </summary>
-        protected override void OnResume()
+        protected async override void OnResume()
         {
             try
             {
                 base.OnResume();
+                // show the loading overlay on the UI thread
+                progress = ProgressDialog.Show(this, "Loading", "Please Wait...", true);
+
+                //listings = SQLLightCachingHelper.GetProperties().Result;
+                listings = await propertyManager.GetItemsAsync();
+                // create our adapter
+                listingAdapter = new PropertyListingsManagerAdapter(this,
+                        Resource.Layout.CustomLayoutListingView,
+                        listings);
+                propertylisttingsView = FindViewById<ListView>(Resource.Id.PropertylisttingsView);
+                //Hook up our adapter to our ListView
+                propertylisttingsView.Adapter = listingAdapter;
+                if (progress != null)
+                    progress.Hide();
             }
-            catch 
+            catch(Exception ex)
             {
 
             }
