@@ -40,7 +40,7 @@ namespace XamarinAssignment.iOS
             //imageBytes = propertyManager.GetImageAsync(propertyitem.Image).Result;
 
             // ImageHelper.SetImage(imageBytes, propertyitem.ListingID, cell.Image, 150);
-            ImageHelper.SetImage(propertyManager, propertyitem, cell.Image);
+            ImageHelper.SetImage(propertyManager, propertyitem.ListingID, propertyitem.Image, cell.Image);
             return cell;
         }
         public Property GetItem(int id)

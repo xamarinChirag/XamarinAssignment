@@ -12,6 +12,7 @@ using XamarinAssignment.ServiceClient;
 using System.Threading.Tasks;
 using XamarinAssignment.Infrastructure.CrossCuttings;
 using Cirrious.CrossCore;
+using Plugin.Connectivity;
 
 namespace XamarinAssignment.Droid
 {
@@ -34,7 +35,9 @@ namespace XamarinAssignment.Droid
         protected async override void OnCreate (Bundle bundle)
 		{
             SetUpIOC.SetupContainer();
-            
+            if(!CrossConnectivity.Current.IsConnected)
+                Mvx.RegisterSingleton(new PropertyRepository(new SQLiteInfoMonodroid()));
+
             base.OnCreate (bundle);
             // Set our view from the "main" layout resource
             propertyManager = Mvx.GetSingleton<IPropertyMangager>();
@@ -73,6 +76,7 @@ namespace XamarinAssignment.Droid
 
                 //listings = SQLLightCachingHelper.GetProperties().Result;
                 listings = await propertyManager.GetItemsAsync();
+             
                 // create our adapter
                 listingAdapter = new PropertyListingsManagerAdapter(this,
                         Resource.Layout.CustomLayoutListingView,
@@ -80,6 +84,10 @@ namespace XamarinAssignment.Droid
                 propertylisttingsView = FindViewById<ListView>(Resource.Id.PropertylisttingsView);
                 //Hook up our adapter to our ListView
                 propertylisttingsView.Adapter = listingAdapter;
+                if (CrossConnectivity.Current.IsConnected)
+                    SQLLiteHelper.InsertProperty(listings);
+
+
                 if (progress != null)
                     progress.Hide();
             }

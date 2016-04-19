@@ -74,7 +74,7 @@ namespace XamarinAssignment.Droid
 
             //imageBytes =  propertyManager.GetImageAsync(this[position].Image).Result;
         
-            ImageHelper.SetImage(propertyManager,  this[position], downloadedImageView);
+            ImageHelper.SetImage(propertyManager,  this[position].ListingID, this[position].Image,downloadedImageView);
 
             TextView textViewAddress = view.FindViewById<TextView>(Resource.Id.AddressText);
             textViewAddress.Text = this[position].Address;

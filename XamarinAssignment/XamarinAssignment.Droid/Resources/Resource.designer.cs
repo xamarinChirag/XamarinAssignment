@@ -26,6 +26,9 @@ namespace XamarinAssignment.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Splat.Resource.String.library_name = global::XamarinAssignment.Droid.Resource.String.library_name;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::XamarinAssignment.Droid.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::XamarinAssignment.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
@@ -44,23 +47,23 @@ namespace XamarinAssignment.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f040001
-			public const int black = 2130968577;
+			// aapt resource value: 0x7f050001
+			public const int black = 2131034113;
 			
-			// aapt resource value: 0x7f040003
-			public const int grey = 2130968579;
+			// aapt resource value: 0x7f050003
+			public const int grey = 2131034115;
 			
-			// aapt resource value: 0x7f040002
-			public const int lightgrey = 2130968578;
+			// aapt resource value: 0x7f050002
+			public const int lightgrey = 2131034114;
 			
-			// aapt resource value: 0x7f040005
-			public const int listseparator = 2130968581;
+			// aapt resource value: 0x7f050005
+			public const int listseparator = 2131034117;
 			
-			// aapt resource value: 0x7f040000
-			public const int transparent = 2130968576;
+			// aapt resource value: 0x7f050000
+			public const int transparent = 2131034112;
 			
-			// aapt resource value: 0x7f040004
-			public const int white = 2130968580;
+			// aapt resource value: 0x7f050004
+			public const int white = 2131034116;
 			
 			static Color()
 			{
@@ -162,11 +165,20 @@ namespace XamarinAssignment.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f050001
-			public const int app_name = 2131034113;
+			// aapt resource value: 0x7f040001
+			public const int ApplicationName = 2130968577;
 			
-			// aapt resource value: 0x7f050000
-			public const int hello = 2131034112;
+			// aapt resource value: 0x7f040000
+			public const int Hello = 2130968576;
+			
+			// aapt resource value: 0x7f040004
+			public const int app_name = 2130968580;
+			
+			// aapt resource value: 0x7f040003
+			public const int hello = 2130968579;
+			
+			// aapt resource value: 0x7f040002
+			public const int library_name = 2130968578;
 			
 			static String()
 			{

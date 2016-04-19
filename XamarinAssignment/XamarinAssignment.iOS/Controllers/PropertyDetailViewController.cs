@@ -42,7 +42,7 @@ namespace XamarinAssignment.iOS
                 imageBytes =  propertyManager.GetImageAsync(propertyDetail.Image).Result;
 
                 //ImageHelper.SetImage(imageBytes, propertyDetail.ListingID, PropertyImage, 150);
-                ImageHelper.SetImage(propertyManager, propertyDetail, PropertyImage);
+                ImageHelper.SetImage(propertyManager, propertyDetail.ListingID, propertyDetail.Image, PropertyImage);
 
                 AddressLabel.Text = propertyDetail.Address;
                 BedsLabel.Text = string.Format("Beds: {0}", propertyDetail.Beds);

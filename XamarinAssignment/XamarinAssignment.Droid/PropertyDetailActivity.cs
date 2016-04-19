@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using XamarinAssignment.Droid.Helper;
 using Android.Graphics;
 using Cirrious.CrossCore;
+using Plugin.Connectivity;
 
 namespace XamarinAssignment.Droid
 {
@@ -46,8 +47,11 @@ namespace XamarinAssignment.Droid
                 propertydetail = await propertyManager.GetItemAsync(listingID.ToString());
             }
             SetContentView(Resource.Layout.PropertyDetailView);
+            if(propertydetail != null)
+                BindFields();
 
-            BindFields();
+            if (CrossConnectivity.Current.IsConnected)
+                SQLLiteHelper.InsertPropertyDetails(propertydetail);
 
             if (progress != null)
                 progress.Hide();
@@ -74,7 +78,7 @@ namespace XamarinAssignment.Droid
             //).GetAwaiter().GetResult();
 
             //// ImageHelper.SetImage(imageBytes, propertydetail.ListingID, downloadedImageView, 200);
-            ImageHelper.SetImage(propertyManager, propertydetail, downloadedImageView);
+            ImageHelper.SetImage(propertyManager, propertydetail.ListingID, propertydetail.Image, downloadedImageView);
 
             textViewAddress.Text = propertydetail.Address;
             textViewBeds.Text = Convert.ToString(propertydetail.Beds);

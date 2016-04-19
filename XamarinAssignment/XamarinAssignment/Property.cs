@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SQLite.Net.Attributes;
 using System;
 
 namespace XamarinAssignment.Model
@@ -9,6 +10,7 @@ namespace XamarinAssignment.Model
     public class Property
     {
         [JsonProperty("listingID")]
+        [PrimaryKey,AutoIncrement]
         public int ListingID { get; set; }
         [JsonProperty("image")]
         public string Image { get; set; }

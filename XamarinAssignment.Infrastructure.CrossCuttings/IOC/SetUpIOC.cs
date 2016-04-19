@@ -1,5 +1,6 @@
 ﻿using Cirrious.CrossCore;
 using Cirrious.CrossCore.IoC;
+using Plugin.Connectivity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,23 @@ namespace XamarinAssignment.Infrastructure.CrossCuttings
         public static void SetupContainer()
         {
             MvxSimpleIoCContainer.Initialize();
-            Mvx.RegisterSingleton<IPropertyMangager>(new PropertyMangager());
+
+            try
+            {
+                // Android-specific code
+                if (CrossConnectivity.Current.IsConnected)
+                {
+                    Mvx.RegisterSingleton<IPropertyMangager>(new PropertyMangager());
+                }
+                else
+                {
+                    Mvx.RegisterSingleton<IPropertyMangager>(new OfflinePropertyMangager());
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
-   
-    
 }
