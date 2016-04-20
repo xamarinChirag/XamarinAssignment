@@ -11,7 +11,7 @@ namespace XamarinAssignment.Infrastructure.CrossCuttings
 {
     public static class SQLLightCachingHelper
     {
-
+        //TODO: Need to work on it as not able to initialize the BlobCache object 
 
         //public async static Task<List<Property>> GetProperties()
         //{

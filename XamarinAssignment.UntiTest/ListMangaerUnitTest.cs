@@ -8,14 +8,21 @@ namespace XamarinAssignment.UntiTest
     [TestClass]
     public class ListMangaerUnitTest
     {
+        IPropertyMangager mgr = null;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            mgr = new PropertyMangager();
+        }
+
         [TestMethod]
         public void TestGetItemsAsync()
         {
             Task.Run(async () =>
             {
-                IPropertyMangager mgr = new PropertyMangager();
                 var list = await mgr.GetItemsAsync();
-                Assert.IsNotNull(list);
+                Assert.IsTrue(list != null && list.Count > 0);
             }
            ).GetAwaiter().GetResult();
             
@@ -25,7 +32,6 @@ namespace XamarinAssignment.UntiTest
         {
             Task.Run(async () =>
             {
-                IPropertyMangager mgr = new PropertyMangager();
                 var listDetail = await mgr.GetItemAsync("1");
                 Assert.IsNotNull(listDetail);
             }
@@ -37,9 +43,8 @@ namespace XamarinAssignment.UntiTest
         {
             Task.Run(async () =>
             {
-                IPropertyMangager mgr = new PropertyMangager();
-                var list = await mgr.GetImageAsync("/images/1.jpg");
-                Assert.IsNotNull(list);
+                var image = await mgr.GetImageAsync("/images/1.jpg");
+                Assert.IsTrue(image != null && image.Length > 0);
             }
            ).GetAwaiter().GetResult();
 

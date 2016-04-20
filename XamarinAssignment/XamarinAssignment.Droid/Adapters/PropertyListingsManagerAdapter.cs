@@ -19,9 +19,11 @@ using Cirrious.CrossCore;
 
 namespace XamarinAssignment.Droid
 {
+    /// <summary>
+    /// PropertyListingsManagerAdapter
+    /// </summary>
     class PropertyListingsManagerAdapter : BaseAdapter<Property>
     {
-
         #region Fields
         Context context;
         int layoutResourceId;
@@ -29,21 +31,28 @@ namespace XamarinAssignment.Droid
         List<Property> propertyCollection;
         #endregion
 
-        #region Methods
-        public PropertyListingsManagerAdapter(Context context, 
-            int layoutResourceId, List<Property> listingCollection)
+        #region Constructor
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="layoutResourceId"></param>
+        /// <param name="listingCollection"></param>
+        public PropertyListingsManagerAdapter(Context context, int layoutResourceId, List<Property> listingCollection)
         {
+            #region Commented
             //propertyManager = TinyIoC.TinyIoCContainer.Current.Resolve<IPropertyMangager>();
             //propertyManager = new PropertyMangager();
+            #endregion
 
             this.context = context;
             this.layoutResourceId = layoutResourceId;
             this.propertyCollection = listingCollection;
-
             propertyManager = Mvx.GetSingleton<IPropertyMangager>();
-
         }
+        #endregion
 
+        #region Properties
         public override Property this[int position]
         {
            get { return propertyCollection[position]; }
@@ -58,8 +67,10 @@ namespace XamarinAssignment.Droid
         {
             return position;
         }
+        #endregion
 
-        public  override View GetView(int position, View convertView, ViewGroup parent)
+        #region Methods
+        public override View GetView(int position, View convertView, ViewGroup parent)
         {
             View view = convertView;
             if (view == null)
@@ -68,10 +79,8 @@ namespace XamarinAssignment.Droid
                     context.GetSystemService(Context.LayoutInflaterService) as LayoutInflater;
                 view = inflater.Inflate(layoutResourceId, null);
             }
-
             ImageView downloadedImageView = view.FindViewById<ImageView>(Resource.Id.DownloadedImageView);
-           // byte[] imageBytes = null;
-
+            // byte[] imageBytes = null;
             //imageBytes =  propertyManager.GetImageAsync(this[position].Image).Result;
         
             ImageHelper.SetImage(propertyManager,  this[position].ListingID, this[position].Image,downloadedImageView);
@@ -88,6 +97,5 @@ namespace XamarinAssignment.Droid
             return view;
         }
         #endregion
-
     }
 }

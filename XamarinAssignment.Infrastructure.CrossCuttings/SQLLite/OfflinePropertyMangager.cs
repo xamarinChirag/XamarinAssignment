@@ -12,17 +12,28 @@ using XamarinAssignment.Model;
 
 namespace XamarinAssignment.ServiceClient
 {
+    /// <summary>
+    /// Offline property Manager for handling the offiline mode
+    /// </summary>
     public class OfflinePropertyMangager : IPropertyMangager
     {
+        #region Methods
 
+        /// <summary>
+        /// Get the items from teh sqllite db
+        /// </summary>
+        /// <param name="skip"></param>
+        /// <param name="take"></param>
+        /// <param name="forceRefresh"></param>
+        /// <returns></returns>
         public async Task<List<Property>> GetItemsAsync(int skip = 0, int take = 100, bool forceRefresh = false)
         {
             List<Property> listings = new List<Property>();
 
             try
             {
-                var repository = Mvx.GetSingleton<PropertyRepository>();
-                listings = await repository.RetrieveAllProperties();
+                var propertyRepository = Mvx.GetSingleton<PropertyRepository>();
+                listings = await propertyRepository.RetrieveAllProperties();
             }
             catch (Exception ex)
             {
@@ -31,37 +42,38 @@ namespace XamarinAssignment.ServiceClient
             return listings;
         }
 
+        /// <summary>
+        /// Get property detail by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<PropertyDetail> GetItemAsync(string id)
         {
-            PropertyDetail listingDetail = new PropertyDetail();
+            PropertyDetail propertyDetail = new PropertyDetail();
             try
             {
-                var repository = Mvx.GetSingleton<PropertyRepository>();
-                listingDetail = await repository.GetPropertyDetailById(Convert.ToInt32(id));
+                var propertyRepository = Mvx.GetSingleton<PropertyRepository>();
+                propertyDetail = await propertyRepository.GetPropertyDetailById(Convert.ToInt32(id));
             }
             catch (Exception ex)
             {
                 throw;
             }
-            return listingDetail;
+            return propertyDetail;
         }
 
-        
+        /// <summary>
+        /// Images are taken form the local storage so returning the null byte array.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public async Task<byte[]> GetImageAsync(string name)
         {
             byte[] imageBytes = null;
-            //var uri = new Uri(Constants.strRestUrl + name);
-            //using (var client = new HttpClient(new NativeMessageHandler()))
-            //{
-            //    //client.BaseAddress = new Uri(Constants.strRestUrl);
-            //    client.DefaultRequestHeaders.Accept.Clear();
-            //    //var task = Task.Run(async () => { imageBytes = await client.GetByteArrayAsync(uri); });
-            //    //task.Wait();
-            //    imageBytes = await client.GetByteArrayAsync(uri).ConfigureAwait(false);
-            //}
             return imageBytes;
         }
 
+        #endregion
 
     }
 }

@@ -12,17 +12,22 @@ namespace XamarinAssignment.iOS
 {
 	partial class PropertyDetailViewController : UITableViewController
 	{
+        #region Fields
         int currentPropertyId;
         IPropertyMangager propertyManager;
         PropertyDetail propertyDetail;
+        #endregion
 
+        #region Constructor
         public PropertyDetailViewController (IntPtr handle) : base (handle)
 		{
             // propertyManager = TinyIoC.TinyIoCContainer.Current.Resolve<IPropertyMangager>();
             propertyManager = Mvx.GetSingleton<IPropertyMangager>();
-
-
         }
+        #endregion
+
+        #region Methods
+
         public override void ViewDidLoad()
 		{
 			base.ViewDidLoad ();
@@ -35,7 +40,6 @@ namespace XamarinAssignment.iOS
             propertyManager = new PropertyMangager();
             if (currentPropertyId > 0)
             {
-
                 propertyDetail = propertyManager.GetItemAsync(currentPropertyId.ToString()).Result;
 
                 byte[] imageBytes = null;
@@ -52,15 +56,20 @@ namespace XamarinAssignment.iOS
                 FeatureText.Text = propertyDetail.Features;
                 if (Convert.ToDouble(propertyDetail.ChangeOverLastYear) < 0)
                     RateChangeLabel.TextColor = UIColor.Red;
-
-
             }
            
         }
 
-        // this will be called before the view is displayed
+        /// <summary>
+        /// // this will be called before the view is displayed
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="id"></param>
         public void SetTask (PropertyViewController d, int id) {
             currentPropertyId = id;
         }
-	}
+
+        #endregion
+
+    }
 }

@@ -5,7 +5,7 @@ using System;
 namespace XamarinAssignment.Model
 {
     /// <summary>
-    /// Property 
+    /// Property class
     /// </summary>
     public class Property
     {

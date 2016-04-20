@@ -11,19 +11,29 @@ using XamarinAssignment.Model;
 
 namespace XamarinAssignment.ServiceClient
 {
+
+    /// <summary>
+    /// Prperty manager class for fetching the data from the webservice.
+    /// </summary>
     public class PropertyMangager : IPropertyMangager
     {
+        #region Methods
 
+        /// <summary>
+        /// GetItems for property
+        /// </summary>
+        /// <param name="skip"></param>
+        /// <param name="take"></param>
+        /// <param name="forceRefresh"></param>
+        /// <returns></returns>
         public async Task<List<Property>> GetItemsAsync(int skip = 0, int take = 100, bool forceRefresh = false)
         {
             List<Property> listings = new List<Property>();
-
             try
             {
                 var uri = new Uri(Constants.strRestUrl + Constants.strListing);
                 using (var client = CreateClient())
                 {
-                    
                     var response = await client.GetAsync(uri).ConfigureAwait(false);
                     if (response.IsSuccessStatusCode)
                     {
@@ -99,6 +109,7 @@ namespace XamarinAssignment.ServiceClient
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             return httpClient;
         }
-       
+        #endregion
+
     }
 }

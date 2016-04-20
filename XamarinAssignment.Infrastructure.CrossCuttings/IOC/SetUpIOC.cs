@@ -10,13 +10,18 @@ using XamarinAssignment.ServiceClient;
 
 namespace XamarinAssignment.Infrastructure.CrossCuttings
 {
+    /// <summary>
+    /// Setting up the IOC Service locator
+    /// </summary>
     public static class SetUpIOC
     {
-
+        #region Methods
+        /// <summary>
+        /// SetupContainer
+        /// </summary>
         public static void SetupContainer()
         {
             MvxSimpleIoCContainer.Initialize();
-
             try
             {
                 // Android-specific code
@@ -31,8 +36,9 @@ namespace XamarinAssignment.Infrastructure.CrossCuttings
             }
             catch
             {
-
+                //TODO: need to handle the exception
             }
         }
+        #endregion
     }
 }

@@ -19,9 +19,13 @@ namespace XamarinAssignment.iOS
             //listingManager = new PropertyMangager();
             //propertyManager = TinyIoC.TinyIoCContainer.Current.Resolve<IPropertyMangager>();
             propertyManager = Mvx.GetSingleton<IPropertyMangager>();
-
         }
 
+        /// <summary>
+        /// Detail page Segue
+        /// </summary>
+        /// <param name="segue"></param>
+        /// <param name="sender"></param>
 		public override void PrepareForSegue (UIStoryboardSegue segue, NSObject sender)
 		{
 			if (segue.Identifier == "DetailSegue") { // set in Storyboard

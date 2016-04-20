@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -19,7 +18,20 @@ namespace XamarinAssignment.Droid.Helper
 {
    public static class ImageHelper
     {
+        #region  Fields
         static Dictionary<int, string> urlToImageMap = new Dictionary<int, string>();
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Download the image from the url and save it to local storage for reuse
+        /// </summary>
+        /// <param name="propertyManager"></param>
+        /// <param name="listingID"></param>
+        /// <param name="imageName"></param>
+        /// <param name="downloadedImageView"></param>
+        /// <param name="isOrignal"></param>
         public static void SetImage(IPropertyMangager propertyManager,int listingID, string imageName, ImageView downloadedImageView, int isOrignal = 100)
         {
             byte[] imageBytes = null;
@@ -55,6 +67,13 @@ namespace XamarinAssignment.Droid.Helper
 
             }
         }
+
+        /// <summary>
+        /// Scaling the image for proper resolution
+        /// </summary>
+        /// <param name="imagePath"></param>
+        /// <param name="destination"></param>
+        /// <param name="targetScale"></param>
         private static void SetPic(String imagePath, ImageView destination, int targetScale)
         {
             
@@ -82,5 +101,7 @@ namespace XamarinAssignment.Droid.Helper
             //destination.SetImageBitmap(result);
             destination.SetImageBitmap(bitmap);
         }
+
+        #endregion
     }
 }

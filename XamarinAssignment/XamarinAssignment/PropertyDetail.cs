@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace XamarinAssignment.Model
 {
     /// <summary>
-    /// PropertyDetail
+    /// PropertyDetail class
     /// </summary>
 
     [Table("PropertyDetail")]

@@ -22,7 +22,7 @@ namespace XamarinAssignment.Droid
         #region Fields
         ListView propertylisttingsView;
         PropertyListingsManagerAdapter listingAdapter;
-        List<Property> listings;
+        List<Property> propertylistings;
         IPropertyMangager propertyManager;
         ProgressDialog progress;
         #endregion
@@ -39,7 +39,7 @@ namespace XamarinAssignment.Droid
                 Mvx.RegisterSingleton(new PropertyRepository(new SQLiteInfoMonodroid()));
 
             base.OnCreate (bundle);
-            // Set our view from the "main" layout resource
+
             propertyManager = Mvx.GetSingleton<IPropertyMangager>();
             //propertyManager = new PropertyMangager();
             SetContentView (Resource.Layout.PropertyViewMain);
@@ -47,18 +47,17 @@ namespace XamarinAssignment.Droid
             propertylisttingsView = FindViewById<ListView>(Resource.Id.PropertylisttingsView);
             propertylisttingsView.SetItemChecked(0, true);
             propertylisttingsView.ItemClick += ListtingsView_ItemClick;
-
-           
         }
+
         /// <summary>
-        /// 
+        /// ListtingsView_ItemClick
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ListtingsView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             var listingDetails = new Intent(this, typeof(PropertyDetailActivity));
-            listingDetails.PutExtra("ListingID", listings[e.Position].ListingID);
+            listingDetails.PutExtra("ListingID", propertylistings[e.Position].ListingID);
             StartActivity(listingDetails);
 
         }
@@ -75,23 +74,23 @@ namespace XamarinAssignment.Droid
                 progress = ProgressDialog.Show(this, "Loading", "Please Wait...", true);
 
                 //listings = SQLLightCachingHelper.GetProperties().Result;
-                listings = await propertyManager.GetItemsAsync();
+                propertylistings = await propertyManager.GetItemsAsync();
              
                 // create our adapter
                 listingAdapter = new PropertyListingsManagerAdapter(this,
                         Resource.Layout.CustomLayoutListingView,
-                        listings);
+                        propertylistings);
+
                 propertylisttingsView = FindViewById<ListView>(Resource.Id.PropertylisttingsView);
                 //Hook up our adapter to our ListView
                 propertylisttingsView.Adapter = listingAdapter;
                 if (CrossConnectivity.Current.IsConnected)
-                    SQLLiteHelper.InsertProperty(listings);
-
+                    SQLLiteHelper.InsertProperty(propertylistings);
 
                 if (progress != null)
                     progress.Hide();
             }
-            catch(Exception ex)
+            catch
             {
 
             }

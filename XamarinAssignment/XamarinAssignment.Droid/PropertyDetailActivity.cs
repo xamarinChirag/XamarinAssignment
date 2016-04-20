@@ -70,6 +70,9 @@ namespace XamarinAssignment.Droid
             var textFeatures = FindViewById<TextView>(Resource.Id.FeaturesText);
 
             ImageView downloadedImageView = FindViewById<ImageView>(Resource.Id.DownloadedImageView);
+
+            #region Commented
+
             // byte[] imageBytes = null;
             // Task.Run(async () =>
             // {
@@ -78,6 +81,9 @@ namespace XamarinAssignment.Droid
             //).GetAwaiter().GetResult();
 
             //// ImageHelper.SetImage(imageBytes, propertydetail.ListingID, downloadedImageView, 200);
+
+            #endregion
+
             ImageHelper.SetImage(propertyManager, propertydetail.ListingID, propertydetail.Image, downloadedImageView);
 
             textViewAddress.Text = propertydetail.Address;

@@ -15,27 +15,29 @@ using XamarinAssignment.Infrastructure.CrossCuttings;
 
 namespace XamarinAssignment.Droid
 {
+    /// <summary>
+    /// SQL lite helper methods for the crud opertation of Sqllite db
+    /// </summary>
     public class SQLLiteHelper
     {
-
+        #region Methods
         /// <summary>
         /// InsertProperty
         /// </summary>
-        /// <param name="listProperty"></param>
-        public static void InsertProperty(List<Property> listProperty)
+        /// <param name="propertyList"></param>
+        public static void InsertProperty(List<Property> propertyList)
         {
-            using (var repo = new PropertyRepository(new SQLiteInfoMonodroid()))
+            using (var propertyRepository = new PropertyRepository(new SQLiteInfoMonodroid()))
             {
-                if (repo.GetPropertyCount() < listProperty.Count)
+                if (propertyRepository.GetPropertyCount() < propertyList.Count)
                 {
-                    foreach (var property in listProperty)
+                    foreach (var property in propertyList)
                     {
-                        repo.InsertProperty(property);
+                        propertyRepository.InsertProperty(property);
                     }
                 }
             }
         }
-
 
         /// <summary>
         /// InsertPropertyDetails
@@ -43,13 +45,13 @@ namespace XamarinAssignment.Droid
         /// <param name="propertyDetail"></param>
         public static void InsertPropertyDetails(PropertyDetail propertyDetail)
         {
-            using (var repo = new PropertyRepository(new SQLiteInfoMonodroid()))
+            using (var propertyRepository = new PropertyRepository(new SQLiteInfoMonodroid()))
             {
-                var detail = repo.GetPropertyDetailById(propertyDetail.ListingID);
+                var detail = propertyRepository.GetPropertyDetailById(propertyDetail.ListingID);
                 if(detail.Result == null )
-                    repo.InsertPropertyDetail(propertyDetail);
+                    propertyRepository.InsertPropertyDetail(propertyDetail);
             }
         }
-
+        #endregion
     }
 }
