@@ -1,5 +1,7 @@
 # XamarinAssignment -Xamarin android and ios assignment
 
+## App for displaying properties and clicking on it provide details, consume the REST api.
+
 ### List Requirements:
 -	Show a list of all listings, including their:
 -	Picture
