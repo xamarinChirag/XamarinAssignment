@@ -43,7 +43,7 @@ namespace XamarinAssignment.iOS.Helper
                         imageBytes = await propertyManager.GetImageAsync(imageName);
 
                     }
-                    ).ConfigureAwait(false);
+					).ConfigureAwait(false).GetAwaiter().GetResult();
 
                     File.WriteAllBytes(localPath, imageBytes); // writes to local storage   
                 }
